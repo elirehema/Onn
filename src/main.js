@@ -9,8 +9,9 @@ Vue.use(VueAxios, axios);
 
 import App from './App.vue';
 import CreateItem from './components/CreateItem.vue';
-import DisplayItem from './components/DisplayItem.vue';
-import EditItem from './components/EditItem.vue';
+import DisplayUsers from './components/DisplayUsers.vue';
+import EditUser from './components/EditUser.vue';
+import CreateUserComponent from './components/CreateUser.vue';
 
 const routes = [
     {
@@ -19,14 +20,19 @@ const routes = [
         component: CreateItem
     },
     {
-        name: 'DisplayItem',
+        name: 'DisplayUsers',
         path: '/',
-        component: DisplayItem
+        component: DisplayUsers
     },
     {
-        name: 'EditItem',
-        path: '/edit/:id',
-        component: EditItem
+        name: 'EditUser',
+        path: '/user/:id',
+        component: EditUser
+    },
+    {
+        name: 'CreateUser',
+        path: '/create/user',
+        component : CreateUserComponent
     }
 ];
 
