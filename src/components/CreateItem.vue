@@ -5,7 +5,7 @@
         <h1>Create An Item</h1>
         <div class="row">
             <div class="col-md-10"></div>
-            <div class="col-md-2"><router-link :to="{ name: 'DisplayItem' }" class="btn btn-success">Return to Items</router-link></div>
+            <div class="col-md-2"><router-link :to="{ name: 'DisplayUsers' }" class="btn btn-success">Return to Items</router-link></div>
         </div>
         <form v-on:submit.prevent="addItem">
             <div class="row">
@@ -41,7 +41,7 @@
         },
         methods: {
             addItem(){
-                let uri = 'http://localhost:4000/items/add';
+                let uri = 'http://localhost:4000/item';
                 this.axios.post(uri, this.item).then((response) => {
                     console.log(response.status)
                 })
