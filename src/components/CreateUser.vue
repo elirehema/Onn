@@ -66,7 +66,7 @@
             addItem(){
                 let uri = 'http://localhost:8080/api/users/';
                 this.axios.post(uri, this.user).then((response) => {
-                    console.log(response.status)
+                   console.log(response.status)
                     this.$router.push({name: 'DisplayUsers'});
                 })
             }
