@@ -80,7 +80,7 @@
             updateItem()
             {
                 let uri = 'http://localhost:8080/api/users/' + this.$route.params.id;
-                this.axios.patch(uri, this.user).then((response) => {
+                this.axios.patch(uri, this.user).then(() => {
                     this.$router.push({name: 'DisplayUsers'});
                 });
             }
