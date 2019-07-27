@@ -1,5 +1,11 @@
 import Vue from 'vue';
+import moment from 'moment'
 
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a')
+  }
+});
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 
