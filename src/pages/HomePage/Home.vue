@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>{{$t('welcomeMsg') }}</h1>
     <md-table v-model="items"  md-sort="name" md-sort-order="asc" md-card md-fixed-header>
       <md-table-toolbar>
         <div class="md-toolbar-section-start">

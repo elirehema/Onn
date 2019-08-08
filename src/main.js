@@ -8,6 +8,7 @@ import axios from 'axios';
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import vuetify from './plugins/vuetify';
+import i18n from './plugins/i18n';
 
 
 Vue.filter('formatDate', function(value) {
@@ -22,6 +23,7 @@ Vue.use(VueAxios, axios);
 
 
 new Vue({
+  i18n,
   render: h => h(App),
   router,
   store,

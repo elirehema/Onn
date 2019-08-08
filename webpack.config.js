@@ -8,8 +8,10 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
+        extensions: ['.js','.vue','.json'],
         alias: {
-            vue: 'vue/dist/vue.js'
+            vue: 'vue/dist/vue.js',
+
         }
     },
     module: {
