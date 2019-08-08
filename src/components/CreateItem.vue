@@ -5,7 +5,7 @@
         <h1>Create An Item</h1>
         <div class="row">
             <div class="col-md-10"></div>
-            <div class="col-md-2"><router-link :to="{ name: 'DisplayUsers' }" class="btn btn-success">Return to Items</router-link></div>
+            <div class="col-md-2"><router-link :to="{ name: 'Home' }" class="btn btn-success">Return to Items</router-link></div>
         </div>
         <form v-on:submit.prevent="addItem">
             <div class="row">

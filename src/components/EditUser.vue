@@ -3,7 +3,7 @@
         <h1>Update Item</h1>
         <div class="row">
             <div class="col-md-10"></div>
-            <div class="col-md-2"><router-link :to="{ name: 'DisplayUsers' }" class="btn btn-success">Return to Items</router-link></div>
+            <div class="col-md-2"><router-link :to="{ name: 'Home' }" class="btn btn-success">Return to Items</router-link></div>
         </div>
 
         <form v-on:submit.prevent="updateItem">
@@ -89,7 +89,7 @@
             {
                 let uri = 'http://localhost:8080/api/users/' + this.$route.params.id;
                 this.axios.patch(uri, this.user).then(() => {
-                    this.$router.push({name: 'DisplayUsers'});
+                    this.$router.push({name: 'Home'});
                 });
             }
         }
