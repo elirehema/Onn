@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-10"></div>
       <div class="col-md-2">
-        <router-link :to="{ name: 'DisplayUsers' }" class="btn btn-success">Return to Items</router-link>
+        <router-link :to="{ name: 'Home' }" class="btn btn-success">Return to Items</router-link>
       </div>
     </div>
     <form v-on:submit.prevent="addItem">
@@ -54,7 +54,7 @@ export default {
       let uri = "http://localhost:8080/api/users/";
       this.axios.post(uri, this.user).then(response => {
         console.log(response.status);
-        this.$router.push({ name: "DisplayUsers" });
+        this.$router.push({ name: "Home" });
       });
     }
   }
