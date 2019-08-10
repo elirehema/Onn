@@ -16,7 +16,7 @@ import {
   ALL_PRODUCTS,
   ALL_PRODUCTS_SUCCESS,
   ALL_MANUFACTURERS,
-  ALL_MANUFACTURERS_SUCCESS,
+  ALL_MANUFACTURERS_SUCCESS, LOGIN, LOGIN_SUCCESS,
 } from './mutation-types'
 
 export const productMutations = {
@@ -82,5 +82,15 @@ export const manufacturerMutations = {
   [ALL_MANUFACTURERS_SUCCESS] (state, payload) {
     state.showLoader = false;
     state.manufacturers = payload
+  }
+};
+
+export const loginMutations = {
+  [LOGIN] (state){
+    state.showLoader = true;
+  },
+  [LOGIN_SUCCESS] (state, payload){
+    state.showLoader = false;
+    state.userinfos = payload;
   }
 };

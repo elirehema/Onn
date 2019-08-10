@@ -13,15 +13,22 @@ import {
   ALL_PRODUCTS,
   ALL_PRODUCTS_SUCCESS,
   ALL_MANUFACTURERS,
-  ALL_MANUFACTURERS_SUCCESS
+  ALL_MANUFACTURERS_SUCCESS, LOGIN, LOGIN_SUCCESS
 } from './mutation-types'
-
+export const loginActions = {
+  loginUser({commit}, payload) {
+    commit(LOGIN);
+    axios.get(`${API_BASE}/auth/login`, payload).then(response => {
+      commit(LOGIN_SUCCESS, response.data);
+      console.log(response.data);
+    });
+  }
+};
 export const productActions = {
   allProducts ({commit}) {
     commit(ALL_PRODUCTS);
     axios.get(`${API_BASE}/products`).then(response => {
       commit(ALL_PRODUCTS_SUCCESS, response.data.data);
-      console.log(response.data.data);
     });
   },
   productById ({commit}, payload) {

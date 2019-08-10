@@ -1,5 +1,7 @@
-<template>
+
+<section class="home-page">
   <div>
+
     <h1>{{$t('welcomeMsg') }}</h1>
     <md-table v-model="items"  md-sort="name" md-sort-order="asc" md-card md-fixed-header>
       <md-table-toolbar>
@@ -30,38 +32,5 @@
       </md-table-row>
     </md-table>
   </div>
-</template>
-<style lang="scss" scoped>
-  small {
-    display: block;
-  }
-</style>
+</section>
 
-
-<script>
-  export default {
-    data() {
-      return {
-        items: []
-      };
-    },
-
-    created: function() {
-      this.fetchItems();
-    },
-
-    methods: {
-      fetchItems() {
-        let uri = "http://localhost:8080/api/users";
-        this.axios.get(uri).then(response => {
-          this.items = response.data.data;
-        });
-      },
-      deleteItem(id) {
-        let uri = "http://localhost:8080/api/users/" + id;
-        this.items.splice(id, 1);
-        this.axios.delete(uri);
-      }
-    }
-  };
-</script>
