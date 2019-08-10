@@ -1,0 +1,21 @@
+<section class="login-page">
+    <form>
+        <v-text-field
+                v-model="username"
+                :counter="10"
+                label="Username"
+                required
+        ></v-text-field>
+        <v-text-field
+                v-model="password"
+                label="Password"
+                required
+        ></v-text-field>
+
+
+        <v-btn class="mr-4" @click="formSubmit">submit</v-btn>
+        <v-btn >clear</v-btn>
+    </form>
+    </template>
+</section>
+

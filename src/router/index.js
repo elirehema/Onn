@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import HomeRoutes from './home'
 import UserRouter from './user_router'
 import ProductsRouter from './products'
+import LoginRouter from './login'
 
 //Imports from Pages
 import PageNotFound from '@/components/PageNotFound'
@@ -21,5 +22,7 @@ export default new Router({
         HomeRoutes,
         UserRouter,
         ProductsRouter,
+        LoginRouter,
+
     ]
 })

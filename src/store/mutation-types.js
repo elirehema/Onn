@@ -28,3 +28,8 @@ export const SUCCESS_MSG = 'SUCCESS_MSG'
 
 export const  DELETE_PRODUCT = 'DELETE_PRODUCT'
 export const  DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS'
+
+export const  LOGIN = 'LOGIN'
+export const  LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+
+
