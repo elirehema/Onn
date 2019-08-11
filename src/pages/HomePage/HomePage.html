@@ -1,36 +1,56 @@
-
-<section class="home-page">
+<section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div>
 
-    <h1>{{$t('welcomeMsg') }}</h1>
-    <md-table v-model="items"  md-sort="name" md-sort-order="asc" md-card md-fixed-header>
-      <md-table-toolbar>
-        <div class="md-toolbar-section-start">
-          <h1 class="md-title">Users</h1>
-        </div>
+    <v-simple-table fixed-header  height="300px" dark>
+      <thead>
+      <tr>
+        <th class="text-left">Username</th>
+        <th class="text-left">Fullname</th>
+        <th class="text-left">Email</th>
+        <th class="text-left">Phone</th>
+        <th class="text-left">Created</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="item in items" :key="item._id" >
+        <td>{{item.username}}</td>
+        <td>{{item.fullname}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.create_date | formatDate}}</td>
+        <td>   <v-btn icon v-on:click="editUser(item._id)">
+          <v-icon> mdi-pencil-circle</v-icon>
+        </v-btn>
+          <v-btn icon v-on:click="deleteItem(item._id)">
+            <v-icon>mdi-delete-circle</v-icon>
+          </v-btn>
+          <v-btn icon v-on:click="viewUser(item._id)">
+            <v-icon>mdi-eye</v-icon>
+          </v-btn>
+        </td>
+      </tr>
+      </tbody>
+    </v-simple-table>
+    <v-fab-transition>
+      <v-btn
+              fab
+              absolute
+              small
+              bottom
+              right
+              class="v-btn--example"
+      >
+        <v-icon>mdi-account-multiple-plus</v-icon>
+      </v-btn>
+    </v-fab-transition>
 
-        <md-field md-clearable class="md-toolbar-section-end">
-          <md-input placeholder="Search by name..."  />
-        </md-field>
-        <md-button class="md-raised"> <router-link :to="{ name: 'CreateUser' }" class="btn btn-primary">Create User</router-link></md-button>
-      </md-table-toolbar>
-      <md-table-row slot="md-table-row" slot-scope="{ item }">
-        <md-table-cell md-label="Username">{{item.username}}</md-table-cell>
-        <md-table-cell md-label="FullName" md-sort-by="fullname">{{item.fullname}}</md-table-cell>
-        <md-table-cell md-label="Email" md-sort-by="email">{{item.email}}</md-table-cell>
-        <md-table-cell md-label="Phone No." >{{item.phone}}</md-table-cell>
-        <md-table-cell md-label="Created On" md-sort-by="create_date">{{item.create_date | formatDate}}</md-table-cell>
-        <md-table-cell md-label="Actions">
 
-          <md-button class="md-raised"><router-link
-                  :to="{name: 'EditUser', params: { id: item._id }}"
-          >Edit</router-link></md-button>
-        </md-table-cell>
-        <md-table-cell>
-          <md-button class="md-raised md-accent" v-on:click="deleteItem(item._id)">Delete</md-button>
-        </md-table-cell>
-      </md-table-row>
-    </md-table>
+
   </div>
+
+
+
+
 </section>
 

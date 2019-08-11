@@ -5,9 +5,7 @@ import App from './App';
 import moment from 'moment';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
-import vuetify from './plugins/vuetify';
+import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 
 
@@ -17,7 +15,12 @@ Vue.filter('formatDate', function(value) {
   }
 });
 
-Vue.use(VueMaterial);
+Vue.prototype.$http = axios;
+const token = localStorage.getItem('token');
+if (token){
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
+
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 

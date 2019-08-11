@@ -4,8 +4,8 @@ export default {
   props: [],
   data () {
     return {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
 
     }
   },
@@ -16,11 +16,15 @@ export default {
 
   },
   methods: {
-    formSubmit(e) {
-      e.preventDefault();
-      let currentObj = this;
-      console.log('User clicked' + this.username)
-      this.$store.actions.requestLogin('login',{username : this.username, password:this.password});
+    login:function () {
+      let data ={
+        username: this.username,
+        password: this.password
+      }
+
+      this.$store.dispatch('login',data)
+      //.then(()=> this.$router.push('/'))
+          .catch(err => console.log(err))
     }
 
   }

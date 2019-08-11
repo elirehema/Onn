@@ -1,0 +1,85 @@
+<section class="top-navigation-drawer" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+    <div>
+        <v-toolbar flat>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+            <v-toolbar-title>Que</v-toolbar-title>
+            <v-spacer></v-spacer>
+
+            <v-toolbar-items>
+                <v-btn text>
+                    <router-link :to="{ name: 'HomePage' }">Home</router-link>
+                </v-btn>
+                <v-btn text>
+                    <router-link :to="{ name: 'ProductList' }">Products</router-link>
+                </v-btn>
+                <v-btn>
+                    <router-link :to="{ name: 'AddUser' }">Add User</router-link>
+                </v-btn>
+            </v-toolbar-items>
+
+            <template>
+                <v-btn icon>
+                    <v-icon>mdi-export</v-icon>
+                </v-btn>
+                <!--<v-btn icon>
+                  <v-icon>mdi-delete-circle</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>mdi-plus-circle</v-icon>
+                </v-btn>-->
+            </template>
+        </v-toolbar>
+
+        <v-navigation-drawer
+                v-model="drawer"
+                absolute
+                temporary>
+            <v-list>
+                <v-list-item>
+                    <v-list-item-avatar>
+                        <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+                    </v-list-item-avatar>
+                </v-list-item>
+
+                <v-list-item link>
+                    <v-list-item-content>
+                        <v-list-item-title class="title">John Leider</v-list-item-title>
+                        <v-list-item-subtitle>john@vuetifyjs.com</v-list-item-subtitle>
+                    </v-list-item-content>
+
+                    <v-list-item-action>
+                        <v-icon>mdi-menu-down</v-icon>
+                    </v-list-item-action>
+                </v-list-item>
+            </v-list>
+            <v-divider></v-divider>
+            <v-list
+                    nav
+                    dense>
+                <v-list-item-group v-model="item" color="primary">
+                    <v-list-item
+                            v-for="(item, i) in items"
+                            :key="i">
+                        <v-list-item-icon>
+                            <v-icon v-text="item.icon"></v-icon>
+                        </v-list-item-icon>&nbsp;&nbsp;
+
+                        <v-list-item-content>
+                            <v-list-item-title v-text="item.text"></v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-item-group>
+            </v-list>
+        </v-navigation-drawer>
+
+    </div>
+    <div class="product">
+        <div class="container">
+
+            <router-view></router-view>
+        </div>
+    </div>
+</section>
+
+

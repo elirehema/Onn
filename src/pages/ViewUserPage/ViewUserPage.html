@@ -1,0 +1,30 @@
+
+<section class="view-user-page">
+
+  <v-card
+          class="mx-auto"
+          max-width="344"
+          outlined>
+    <v-list-item three-line>
+      <v-list-item-content>
+        <v-list-item-title class="headline mb-1">{{user.username}}</v-list-item-title>
+        <v-list-item-subtitle>Fullname: {{user.fullname}}</v-list-item-subtitle>
+        <v-list-item-subtitle>Phone: {{user.phone}}</v-list-item-subtitle>
+        <v-list-item-subtitle>Address: {{user.email}}</v-list-item-subtitle>
+      </v-list-item-content>
+
+      <v-img
+              src="https://www.remove.bg/images/samples/combined/s1.jpg"
+
+              max-width="80"
+              max-height="100"
+      ></v-img>
+    </v-list-item>
+
+    <v-card-actions>
+      <v-btn text >Edit</v-btn>
+      <v-btn text v-on:click="deleteThisUser(user._id)">Delete</v-btn>
+    </v-card-actions>
+  </v-card>
+</section>
+
