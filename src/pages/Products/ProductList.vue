@@ -2,14 +2,11 @@
 /* eslint-disable */
 <template>
     <div class="text-center">
-        <h3>Product Lists</h3>
-        <div class="product">
-            <div class="container">
-                <template v-for="product in products">
-                    <product-item :product ="product" v-bind:key="product._id"></product-item>
-                </template>
-            </div>
-        </div>
+
+        <template v-for="product in products">
+            <product-item :product="product" v-bind:key="product._id"></product-item>
+        </template>
+
         <div class="text-center">
             <v-pagination
                     v-model="page"
@@ -22,9 +19,10 @@
 
 <script>
     import ProductItem from '@/components/products/ProductItem.vue'
-    export default{
+
+    export default {
         name: 'products-list',
-        data () {
+        data() {
             return {
                 page: 1,
             }

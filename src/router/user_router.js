@@ -9,7 +9,7 @@ export default {
     component: EditUser,
     children: [
         {
-            path: '/user/:id',
+            path: '/edituser/:id',
             name: 'EditUser',
             component: EditUser
         },

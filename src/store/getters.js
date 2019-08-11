@@ -23,14 +23,31 @@ export const productGetters = {
     },
 
 };
+export const usersGetter = {
+    allUsers: (state) => {
+        return state.users
+    },
+    addUser: (state) =>{
+        return state.users
+    },
+    userById: (state, getters) => id =>{
+        if (getters.allUsers.length > 0){
+            return getters.allUsers.filter(p => p._id === id)[0]
+        } else {
+            return state.user
+        }
+    }
+};
+
+export const registrationGetters = {
+    loginAuths: (state)=>{
+        return state.auths
+    }
+};
 
 export const loginGetters = {
-    // allId: state => state.products.result,
-    // entities: state => state.products.entities,
-  getUserDetails: (state) => {
-
-    return state.userinfos
-    },
+    isLoggedIn: state => !!state.token,
+    authStatus: state => state.status,
 };
 
 export const manufacturerGetters = {

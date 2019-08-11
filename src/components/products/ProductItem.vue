@@ -1,6 +1,5 @@
 /* eslint-disable */
 <template>
-
     <v-card
             class="mx-auto"
             max-width="400"
@@ -8,7 +7,9 @@
         <v-list-item two-line>
             <v-list-item-content>
                 <v-list-item-title>{{product.name}}</v-list-item-title>
-                <v-list-item-subtitle>{{product.create_date}}</v-list-item-subtitle>
+                <v-list-item-subtitle>Phone: {{product.phone}}</v-list-item-subtitle>
+
+                <v-list-item-subtitle>Date: {{product.create_date |formatDate}}</v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
     </v-card>

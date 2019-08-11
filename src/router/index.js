@@ -5,14 +5,17 @@ import HomeRoutes from './home'
 import UserRouter from './user_router'
 import ProductsRouter from './products'
 import LoginRouter from './login'
+import RegistrationRouter from './registration'
+import UserDetailRouter from './user_details'
+import AddUserRouter from './add_user'
 
 //Imports from Pages
 import PageNotFound from '@/components/PageNotFound'
 
 Vue.use(Router);
 
-export default new Router({
- mode: 'history',
+const router = new Router({
+    mode: 'history',
     routes: [
         {
             path: '*',
@@ -23,6 +26,24 @@ export default new Router({
         UserRouter,
         ProductsRouter,
         LoginRouter,
+        RegistrationRouter,
+        UserDetailRouter,
+        AddUserRouter
 
     ]
-})
+});
+router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        if (store.getters.isLoggedIn) {
+            next()
+            return
+        }
+        next('/login')
+    } else {
+        next()
+    }
+
+});
+
+
+export default router;

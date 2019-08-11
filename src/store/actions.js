@@ -2,66 +2,148 @@ import axios from 'axios'
 import {API_BASE} from '../config'
 
 import {
-  ADD_PRODUCT,
-  ADD_PRODUCT_SUCCESS,
-  PRODUCT_BY_ID,
-  PRODUCT_BY_ID_SUCCESS,
-  UPDATE_PRODUCT,
-  UPDATE_PRODUCT_SUCCESS,
-  DELETE_PRODUCT,
-  DELETE_PRODUCT_SUCCESS,
-  ALL_PRODUCTS,
-  ALL_PRODUCTS_SUCCESS,
-  ALL_MANUFACTURERS,
-  ALL_MANUFACTURERS_SUCCESS, LOGIN, LOGIN_SUCCESS
+    ADD_PRODUCT,
+    ADD_PRODUCT_SUCCESS,
+    PRODUCT_BY_ID,
+    PRODUCT_BY_ID_SUCCESS,
+    UPDATE_PRODUCT,
+    UPDATE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT,
+    DELETE_PRODUCT_SUCCESS,
+    ALL_PRODUCTS,
+    ALL_PRODUCTS_SUCCESS,
+    ALL_MANUFACTURERS,
+    ALL_MANUFACTURERS_SUCCESS,
+    LOGIN,
+    LOGIN_SUCCESS,
+    LOGIN_ERROR,
+    LOGOUT,
+    ALL_USERS,
+    ALL_USERS_SUCCESS,
+    ADD_USER,
+    ADD_USER_SUCCESS,
+    REGISTRATION,
+    REGISTRATION_SUCCESS,
+    DELETE_USER, DELETE_USER_SUCCESS
 } from './mutation-types'
-export const loginActions = {
-  loginUser({commit}, payload) {
-    commit(LOGIN);
-    axios.get(`${API_BASE}/auth/login`, payload).then(response => {
-      commit(LOGIN_SUCCESS, response.data);
-      console.log(response.data);
-    });
-  }
-};
+
 export const productActions = {
-  allProducts ({commit}) {
-    commit(ALL_PRODUCTS);
-    axios.get(`${API_BASE}/products`).then(response => {
-      commit(ALL_PRODUCTS_SUCCESS, response.data.data);
-    });
-  },
-  productById ({commit}, payload) {
-    commit(PRODUCT_BY_ID);
-    axios.get(`${API_BASE}/products/${payload}`).then(response =>
-      commit(PRODUCT_BY_ID_SUCCESS, response.data))
-  },
-  addProduct ({commit}, payload) {
-    commit(ADD_PRODUCT);
-    axios.post(`${API_BASE}/products`, payload).then(response => {
-      commit(ADD_PRODUCT_SUCCESS, response.data)
-    })
-  },
-  updateProduct ({commit}, payload) {
-    commit(UPDATE_PRODUCT);
-    axios.put(`${API_BASE}/products/${payload._id}`, payload).then(response => {
-      commit(UPDATE_PRODUCT_SUCCESS, response.data)
-    })
-  },
-  deleteProduct ({commit}, payload) {
-    commit(DELETE_PRODUCT);
-    axios.delete(`${API_BASE}/products/${payload}`, payload).then(response => {
-      console.debug('response', response.data);
-      commit(DELETE_PRODUCT_SUCCESS, response.data)
-    })
-  }
+    allProducts({commit}) {
+        commit(ALL_PRODUCTS);
+        axios.get(`${API_BASE}/products`).then(response => {
+            commit(ALL_PRODUCTS_SUCCESS, response.data.data);
+        });
+    },
+    productById({commit}, payload) {
+        commit(PRODUCT_BY_ID);
+        axios.get(`${API_BASE}/products/${payload}`).then(response =>
+            commit(PRODUCT_BY_ID_SUCCESS, response.data))
+    },
+    addProduct({commit}, payload) {
+        commit(ADD_PRODUCT);
+        axios.post(`${API_BASE}/products`, payload).then(response => {
+            commit(ADD_PRODUCT_SUCCESS, response.data)
+        })
+    },
+    updateProduct({commit}, payload) {
+        commit(UPDATE_PRODUCT);
+        axios.put(`${API_BASE}/products/${payload._id}`, payload).then(response => {
+            commit(UPDATE_PRODUCT_SUCCESS, response.data)
+        })
+    },
+    deleteProduct({commit}, payload) {
+        commit(DELETE_PRODUCT);
+        axios.delete(`${API_BASE}/products/${payload}`, payload).then(response => {
+            commit(DELETE_PRODUCT_SUCCESS, response.data)
+        })
+    }
 };
 
 export const manufacturerActions = {
-  allManufacturers ({commit}) {
-    commit(ALL_MANUFACTURERS)
-    axios.get(`${API_BASE}/manufacturers`).then(response => {
-      commit(ALL_MANUFACTURERS_SUCCESS, response.data)
-    })
-  }
+    allManufacturers({commit}) {
+        commit(ALL_MANUFACTURERS);
+        axios.get(`${API_BASE}/manufacturers`).then(response => {
+            commit(ALL_MANUFACTURERS_SUCCESS, response.data)
+        })
+    }
+};
+export const userActions = {
+    allUsers({commit}) {
+        commit(ALL_USERS);
+        axios.get(`${API_BASE}/users`).then(response => {
+
+            commit(ALL_USERS_SUCCESS, response.data.data)
+        })
+    },
+
+    deleteUser({commit},payload){
+        commit(DELETE_USER);
+        axios.delete(`${API_BASE}/users/${payload}`).then(response =>{
+            commit(DELETE_USER_SUCCESS, response.data);
+        })
+    },
+    addUser({commit}, payload) {
+        commit(ADD_USER);
+        axios.post(`${API_BASE}/users`, payload).then(response => {
+            commit(ADD_USER_SUCCESS, response.data)
+        })
+    },
+
+};
+
+export const registrationActions = {
+    register({commit}, user) {
+        return new Promise((resolve, reject) => {
+            commit(REGISTRATION);
+            axios({url: `${API_BASE}/auth`, data: user, method: 'POST'})
+                .then(resp => {
+                    const token = resp.data.token;
+                    const user = resp.data.user;
+                    localStorage.setItem('token', token);
+                    axios.defaults.headers.common['Authorization'] = token;
+                    commit(REGISTRATION_SUCCESS, token, user);
+                    resolve(resp)
+                })
+                .catch(err => {
+                    commit(LOGIN_ERROR, err);
+                    localStorage.removeItem('token');
+                    reject(err)
+                })
+        })
+    }
+
+};
+
+export const loginActions = {
+
+    /* eslint-disable */
+    login({commit}, user) {
+        return new Promise((resolve, reject) => {
+            commit(LOGIN);
+            axios.get(`${API_BASE}/auth/login`, user)
+                .then(resp => {
+                    const token = resp.data.token;
+                    const user = resp.data.user;
+                    localStorage.setItem('token', token);
+                    axios.defaults.headers.common['Authorization'] = token;
+                    commit(LOGIN_SUCCESS, token, user);
+                    resolve(resp)
+                })
+                .catch(err => {
+                    commit(LOGIN_ERROR);
+                    localStorage.removeItem('token');
+                    reject(err)
+                })
+        })
+    },
+
+    logout({commit}) {
+        return new Promise((resolve, reject) => {
+            commit(LOGOUT);
+            localStorage.removeItem('token');
+            delete axios.defaults.headers.common['Authorization'];
+            resolve()
+        })
+    }
+    /* eslint-enable */
 };
