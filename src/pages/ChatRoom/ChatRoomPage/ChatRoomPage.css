@@ -1,0 +1,33 @@
+.chat-room-page {
+  color: white; }
+
+.split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden; }
+
+.left {
+  left: -1%;
+  width: 35%;
+  background-color: #111; }
+
+.right {
+  right: 0;
+  width: 65%;
+  background-color: transparent; }
+
+.centered {
+  position: absolute;
+  top: 11.5%;
+  left: 12%;
+  width: 100%;
+  transform: translate(-11%, 0%); }
+  .centered img {
+    width: 150px;
+    border-radius: 50%; }
+  .centered .chat {
+    margin-top: 0.5%; }
+
+/*# sourceMappingURL=ChatRoomPage.css.map */

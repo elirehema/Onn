@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIE,oCAAc;EACZ,KAAK,EAAE,IAAI",
+"sources": ["MessagesPage.scss"],
+"names": [],
+"file": "MessagesPage.css"
+}

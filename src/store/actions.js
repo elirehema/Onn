@@ -24,7 +24,13 @@ import {
     ADD_USER_SUCCESS,
     REGISTRATION,
     REGISTRATION_SUCCESS,
-    DELETE_USER, DELETE_USER_SUCCESS
+    DELETE_USER,
+    DELETE_USER_SUCCESS,
+    SEND_MESSAGE,
+    SEND_MESSAGE_SUCCESS,
+    GET_MESSAGE,
+    GET_MESSAGE_SUCCESS,
+    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE
 } from './mutation-types'
 
 export const productActions = {
@@ -76,9 +82,9 @@ export const userActions = {
         })
     },
 
-    deleteUser({commit},payload){
+    deleteUser({commit}, payload) {
         commit(DELETE_USER);
-        axios.delete(`${API_BASE}/users/${payload}`).then(response =>{
+        axios.delete(`${API_BASE}/users/${payload}`).then(response => {
             commit(DELETE_USER_SUCCESS, response.data);
         })
     },
@@ -90,6 +96,31 @@ export const userActions = {
     },
 
 };
+export const messsageAction = {
+    getMessages({commit}) {
+        commit(GET_MESSAGE);
+        axios.get(`${API_BASE}/message`)
+            .then(response => {
+                commit(GET_MESSAGE_SUCCESS, response.data.data)
+                console.log(response.data)
+            })
+            .catch(err => {
+                commit(GET_MESSAGE_FAILURE, err);
+                console.log(err.message);
+            })
+    },
+    sendMessage({commit}, payload) {
+        commit(SEND_MESSAGE);
+        axios.post(`${API_BASE}/message`, payload)
+            .then(response => {
+                commit(SEND_MESSAGE_SUCCESS, response.data.data)
+            })
+            .catch(err => {
+                commit(SEND_MESSAGE_FAILURE, err);
+                console.log(err.message);
+            })
+    }
+}
 
 export const registrationActions = {
     register({commit}, user) {

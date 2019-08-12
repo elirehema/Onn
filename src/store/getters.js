@@ -38,6 +38,14 @@ export const usersGetter = {
         }
     }
 };
+export const messageGetter = {
+    getMessage: (state) => {
+        return state.messages
+    },
+    sendMessage: (state) =>{
+        return state.messages
+    }
+};
 
 export const registrationGetters = {
     loginAuths: (state)=>{

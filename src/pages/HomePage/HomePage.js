@@ -13,6 +13,7 @@ export default {
       this.$store.dispatch('allUsers')
 
   },
+
   computed: {
     isLoggedIn : function () {
       return this.$store.getters.isLoggedIn
