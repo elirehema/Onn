@@ -43,6 +43,9 @@ export default {
     viewUser(id){
       this.$router.push('/user/'+ id)
     },
+    new_user(){
+      this.$router.push('/adduser')
+    },
     logout:function () {
       this.$store.dispatch('logout')
           .then(()=>{

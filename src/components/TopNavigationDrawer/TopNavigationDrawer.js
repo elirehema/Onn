@@ -31,6 +31,9 @@ export default {
 
     }
   },
+  created() {
+    this.$vuetify.theme.dark = '#3f51b5'
+  },
   computed: {
 
   },
@@ -38,6 +41,9 @@ export default {
 
   },
   methods: {
+    nativateToHere(id){
+      this.$router.push('/'+ id)
+    }
 
   }
 }
