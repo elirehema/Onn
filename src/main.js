@@ -9,6 +9,8 @@ import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 
 
+
+
 Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a')
