@@ -1,0 +1,39 @@
+<section class="messages-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+    <v-simple-table height="350px">
+        <thead>
+        <tr>
+            <th class="text-left">Name</th>
+            <th class="text-left">Sender</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in messages" :key="item.name" id="cont">
+            <td>{{ item.name }}</td>
+            <td>{{ item.message }}</td>
+        </tr>
+        </tbody>
+    </v-simple-table>
+
+    <!--<div>
+        <div class="messages" v-for="(msg, index) in messages" :key="index">
+            <p><span class="font-weight-bold">{{ msg.name }}: </span>{{ msg.message }}</p>
+        </div>
+    </div>-->
+
+    <div class="card-footer">
+        <form @submit.prevent="sendMessage">
+            <!-- <div class="gorm-group">
+                 <label for="user">User:</label>
+                 <input type="text" v-model="user" class="form-control">
+             </div>-->
+            <div class="gorm-group pb-3">
+                <label for="message">Message:</label>
+                <input type="text" v-model="message" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Send</button>
+        </form>
+    </div>
+    </div>
+</section>
+

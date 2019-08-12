@@ -24,7 +24,13 @@ import {
     ALL_USERS,
     ALL_USERS_SUCCESS,
     ADD_USER,
-    ADD_USER_SUCCESS, REGISTRATION, REGISTRATION_SUCCESS, DELETE_USER, DELETE_USER_SUCCESS,
+    ADD_USER_SUCCESS,
+    REGISTRATION,
+    REGISTRATION_SUCCESS,
+    DELETE_USER,
+    DELETE_USER_SUCCESS,
+    SEND_MESSAGE,
+    SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE, GET_MESSAGE, GET_MESSAGE_SUCCESS, GET_MESSAGE_FAILURE,
 } from './mutation-types'
 
 export const productMutations = {
@@ -134,6 +140,31 @@ export const loginMutations = {
     [LOGOUT](state) {
         state.token = ''
     }
+};
+export const messageMutation = {
+    [SEND_MESSAGE](state){
+        state.showLoader = true;
+    },
+    [SEND_MESSAGE_SUCCESS](state, message){
+        state.showLoader = false;
+        state.message  = message;
+    },
+    [SEND_MESSAGE_FAILURE](state){
+        state.showLoader = false;
+    },
+    [GET_MESSAGE](state){
+        state.showLoader = true;
+    },
+    [GET_MESSAGE_SUCCESS](state, message){
+        state.showLoader = false;
+        state.messages  = message;
+    },
+    [GET_MESSAGE_FAILURE](state){
+        state.showLoader = false;
+    },
+
+
+
 };
 
 export const registrationMutations = {

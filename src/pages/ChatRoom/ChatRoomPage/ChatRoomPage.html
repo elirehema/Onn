@@ -1,0 +1,42 @@
+<section class="chat-room-page">
+  <div class="split left">
+    <div class="centered">
+      <v-card
+              class="chat mx-auto"
+              max-width="93%"
+              v-for="item in users" :key="item._id" v-on:click="redirectMe(item._id)">
+        <v-card-actions>
+          <v-list-item class="grow">
+            <v-list-item-avatar color="grey darken-3">
+              <v-img
+                      class="elevation-6"
+                      src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+              ></v-img>
+            </v-list-item-avatar>
+            </v-list-item-avatar>
+
+            <v-list-item-content>
+              <v-list-item-title>{{item.username}}</v-list-item-title>
+              <v-list-item-subtitle>{{item.fullname}}</v-list-item-subtitle>
+            </v-list-item-content>
+
+            <v-layout
+                    align-center
+                    justify-end>
+              <v-icon class="mr-1">mdi-chat</v-icon>
+              <span class="subheading mr-2">256</span>
+            </v-layout>
+          </v-list-item>
+        </v-card-actions>
+      </v-card>
+
+    </div>
+  </div>
+
+  <div class="split right">
+    <div class="centered">
+      <router-view></router-view>
+    </div>
+  </div>
+</section>
+

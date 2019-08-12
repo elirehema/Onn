@@ -32,8 +32,6 @@ export default {
       this.$store.dispatch('addUser', data)
           .then(() => this.$router.push('/home'))
           .catch(err => console.log(err.message))
-
-
     }
 
   }

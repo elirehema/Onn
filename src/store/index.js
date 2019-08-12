@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex);
-import { productGetters,loginGetters, manufacturerGetters, usersGetter, registrationGetters} from './getters'
-import { productMutations, loginMutations, manufacturerMutations, userMutations, registrationMutations } from './mutations'
+import { productGetters,loginGetters, manufacturerGetters, usersGetter, registrationGetters, messageGetter} from './getters'
+import { productMutations, loginMutations, manufacturerMutations, userMutations, registrationMutations, messageMutation } from './mutations'
 import { productActions, manufacturerActions,loginActions,
-         userActions, registrationActions } from './actions'
+         userActions, registrationActions,messsageAction } from './actions'
 
 export default new Vuex.Store({
     strict: true,
@@ -19,14 +19,16 @@ export default new Vuex.Store({
         users: [],
         user:{},
         auths: {},
-        deleted: {}
+        deleted: {},
+        messages: [],
+        message:{}
     },
     mutations: Object.assign({},
         productMutations, loginMutations, manufacturerMutations, userMutations,
-        registrationMutations),
+        registrationMutations,messageMutation),
     getters: Object.assign({},
-        productGetters,loginGetters, manufacturerGetters,usersGetter, registrationGetters),
+        productGetters,loginGetters, manufacturerGetters,usersGetter, registrationGetters, messageGetter),
     actions: Object.assign({},
-        productActions, manufacturerActions,loginActions,userActions, registrationActions
+        productActions, manufacturerActions,loginActions,userActions, registrationActions,messsageAction
         )
 })

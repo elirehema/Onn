@@ -7,6 +7,8 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
