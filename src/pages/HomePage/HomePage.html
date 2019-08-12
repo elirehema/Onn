@@ -1,7 +1,7 @@
 <section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div>
 
-    <v-simple-table fixed-header  height="300px" dark>
+    <v-simple-table fixed-header  height="300px" >
       <thead>
       <tr>
         <th class="text-left">Username</th>
@@ -39,8 +39,8 @@
               small
               bottom
               right
-              class="v-btn--example"
-      >
+              v-on:click="new_user()"
+              class="v-btn--example">
         <v-icon>mdi-account-multiple-plus</v-icon>
       </v-btn>
     </v-fab-transition>
