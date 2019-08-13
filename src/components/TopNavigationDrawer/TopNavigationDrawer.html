@@ -1,4 +1,5 @@
-<section class="top-navigation-drawer" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<section class="top-navigation-drawer" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform"
+         xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <v-app>
         <v-app-bar app>
             <v-toolbar flat>
@@ -99,9 +100,10 @@
                             class="mx-1"
                             dark
                             icon>
-                        <v-icon size="14px">{{ icon }}</v-icon>
+                        <a v-bind:href="icon.url" target="_blank">
+                        <v-icon size="14px"  >{{ icon.icon }}</v-icon></a>
                     </v-btn>
-                    <div>&copy; {{ new Date().getFullYear() }}</div>
+                    <div class="subheading">&copy; {{ new Date().getFullYear() }}</div>
 
                 </v-card-title>
             </v-card>
