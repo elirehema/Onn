@@ -17,11 +17,11 @@ export default {
         { text: 'Backups', icon: 'mdi-cloud-upload',route: 'home' },
       ],
       icons: [
-        'mdi-facebook',
-        'mdi-twitter',
-        'mdi-google-plus',
-        'mdi-linkedin',
-        'mdi-instagram',
+        {icon: 'mdi-facebook',url: 'https://web.facebook.com/pelirehema'},
+        {icon: 'mdi-twitter', url: 'https://twitter.com/e_paul_'},
+        {icon: 'mdi-google-plus',url: 'www.google.com'},
+        {icon: 'mdi-linkedin',url: 'https://linkedin.com/in/elirehema-paul-3755b4124/'},
+        {icon: 'mdi-instagram',url: 'https://instagram.com'}
       ],
       goDark: true,
       color: 'primary',
