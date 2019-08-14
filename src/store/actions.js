@@ -1,5 +1,4 @@
-import axios from 'axios'
-import {API_BASE} from '../config'
+import axios from '../config/axios-config'
 
 import {
     ADD_PRODUCT,
@@ -36,30 +35,30 @@ import {
 export const productActions = {
     allProducts({commit}) {
         commit(ALL_PRODUCTS);
-        axios.get(`${API_BASE}/products`).then(response => {
+        axios.get(`/products`).then(response => {
             commit(ALL_PRODUCTS_SUCCESS, response.data.data);
         });
     },
     productById({commit}, payload) {
         commit(PRODUCT_BY_ID);
-        axios.get(`${API_BASE}/products/${payload}`).then(response =>
+        axios.get(`/products/${payload}`).then(response =>
             commit(PRODUCT_BY_ID_SUCCESS, response.data))
     },
     addProduct({commit}, payload) {
         commit(ADD_PRODUCT);
-        axios.post(`${API_BASE}/products`, payload).then(response => {
+        axios.post(`/products`, payload).then(response => {
             commit(ADD_PRODUCT_SUCCESS, response.data)
         })
     },
     updateProduct({commit}, payload) {
         commit(UPDATE_PRODUCT);
-        axios.put(`${API_BASE}/products/${payload._id}`, payload).then(response => {
+        axios.put(`/products/${payload._id}`, payload).then(response => {
             commit(UPDATE_PRODUCT_SUCCESS, response.data)
         })
     },
     deleteProduct({commit}, payload) {
         commit(DELETE_PRODUCT);
-        axios.delete(`${API_BASE}/products/${payload}`, payload).then(response => {
+        axios.delete(`/products/${payload}`, payload).then(response => {
             commit(DELETE_PRODUCT_SUCCESS, response.data)
         })
     }
@@ -68,7 +67,7 @@ export const productActions = {
 export const manufacturerActions = {
     allManufacturers({commit}) {
         commit(ALL_MANUFACTURERS);
-        axios.get(`${API_BASE}/manufacturers`).then(response => {
+        axios.get(`/manufacturers`).then(response => {
             commit(ALL_MANUFACTURERS_SUCCESS, response.data)
         })
     }
@@ -76,7 +75,7 @@ export const manufacturerActions = {
 export const userActions = {
     allUsers({commit}) {
         commit(ALL_USERS);
-        axios.get(`${API_BASE}/users`).then(response => {
+        axios.get(`/users`).then(response => {
 
             commit(ALL_USERS_SUCCESS, response.data.data)
         })
@@ -84,13 +83,13 @@ export const userActions = {
 
     deleteUser({commit}, payload) {
         commit(DELETE_USER);
-        axios.delete(`${API_BASE}/users/${payload}`).then(response => {
+        axios.delete(`/users/${payload}`).then(response => {
             commit(DELETE_USER_SUCCESS, response.data);
         })
     },
     addUser({commit}, payload) {
         commit(ADD_USER);
-        axios.post(`${API_BASE}/users`, payload).then(response => {
+        axios.post(`/users`, payload).then(response => {
             commit(ADD_USER_SUCCESS, response.data)
         })
     },
@@ -99,7 +98,7 @@ export const userActions = {
 export const messsageAction = {
     getMessages({commit}) {
         commit(GET_MESSAGE);
-        axios.get(`${API_BASE}/message`)
+        axios.get(`/message`)
             .then(response => {
                 commit(GET_MESSAGE_SUCCESS, response.data.data)
                 console.log(response.data)
@@ -111,7 +110,7 @@ export const messsageAction = {
     },
     sendMessage({commit}, payload) {
         commit(SEND_MESSAGE);
-        axios.post(`${API_BASE}/message`, payload)
+        axios.post(`/message`, payload)
             .then(response => {
                 commit(SEND_MESSAGE_SUCCESS, response.data.data)
             })
@@ -126,7 +125,7 @@ export const registrationActions = {
     register({commit}, user) {
         return new Promise((resolve, reject) => {
             commit(REGISTRATION);
-            axios({url: `${API_BASE}/auth`, data: user, method: 'POST'})
+            axios({url: `/auth`, data: user, method: 'POST'})
                 .then(resp => {
                     const token = resp.data.token;
                     const user = resp.data.user;
@@ -151,8 +150,9 @@ export const loginActions = {
     login({commit}, user) {
         return new Promise((resolve, reject) => {
             commit(LOGIN);
-            axios.get(`${API_BASE}/auth/login`, user)
+            axios.get(`/auth/login`, user)
                 .then(resp => {
+                    console.log(resp.data);
                     const token = resp.data.token;
                     const user = resp.data.user;
                     localStorage.setItem('token', token);

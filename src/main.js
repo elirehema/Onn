@@ -4,7 +4,7 @@ import store from './store'
 import App from './App';
 import moment from 'moment';
 import VueAxios from 'vue-axios';
-import axios from 'axios';
+import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import 'bootstrap'

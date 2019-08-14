@@ -20,7 +20,7 @@ export default {
       let data ={
         username: this.username,
         password: this.password
-      }
+      };
 
       this.$store.dispatch('login',data)
       //.then(()=> this.$router.push('/'))
