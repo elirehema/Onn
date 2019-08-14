@@ -4,6 +4,5 @@ export default {
   path: '/home',
   name: 'HomePage',
   component: HomePage,
-  children: [
-   ]
+
 }

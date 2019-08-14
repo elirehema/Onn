@@ -10,9 +10,6 @@ import i18n from './plugins/i18n';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
-
 Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a')
