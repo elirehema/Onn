@@ -29,7 +29,7 @@ import {
     SEND_MESSAGE_SUCCESS,
     GET_MESSAGE,
     GET_MESSAGE_SUCCESS,
-    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE
+    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE, LOGOUT_FAILED
 } from './mutation-types'
 
 export const productActions = {
@@ -119,7 +119,7 @@ export const messsageAction = {
                 console.log(err.message);
             })
     }
-}
+};
 
 export const registrationActions = {
     register({commit}, user) {
@@ -150,31 +150,38 @@ export const loginActions = {
     login({commit}, user) {
         return new Promise((resolve, reject) => {
             commit(LOGIN);
-            axios.get(`/auth/login`, user)
+            axios.post(`/auth/login`, user)
                 .then(resp => {
-                    console.log(resp.data);
-                    const token = resp.data.token;
-                    const user = resp.data.user;
-                    localStorage.setItem('token', token);
+                    console.log(resp);
+                    const token = resp.data.accessToken;
+                    const user = resp.data.data;
+                    localStorage.setItem('qAccessToken', token);
+                    localStorage.setItem('username', user);
                     axios.defaults.headers.common['Authorization'] = token;
                     commit(LOGIN_SUCCESS, token, user);
                     resolve(resp)
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR);
-                    localStorage.removeItem('token');
+                    localStorage.removeItem('qAccessToken');
                     reject(err)
                 })
         })
     },
-
     logout({commit}) {
         return new Promise((resolve, reject) => {
             commit(LOGOUT);
-            localStorage.removeItem('token');
+            localStorage.removeItem('qAccessToken');
+            localStorage.removeItem('username');
             delete axios.defaults.headers.common['Authorization'];
+            commit(LOGIN_SUCCESS);
             resolve()
         })
+            .catch(err => {
+                commit(LOGOUT_FAILED);
+                localStorage.removeItem('qAccessToken');
+                reject(err)
+            })
     }
     /* eslint-enable */
 };

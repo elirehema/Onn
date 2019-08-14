@@ -1,7 +1,7 @@
-import Home from '@/pages/LoginPage/index'
+import LoginPage from '@/pages/LoginPage/index'
 
 export default {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Login',
+    component: LoginPage
 }

@@ -20,8 +20,8 @@
                     </v-btn>-->
                 </v-toolbar-items>
 
-                <template>
-                    <v-btn icon>
+                <template >
+                    <v-btn icon v-if="accToken != null"  v-on:click="logout()">
                         <v-icon>mdi-export</v-icon>
                     </v-btn>
                     <!--<v-btn icon>

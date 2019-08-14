@@ -1,0 +1,57 @@
+
+<section class="user-lists" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div>
+
+      <v-simple-table fixed-header  height="300px" >
+        <thead>
+        <tr>
+          <th class="text-left">Username</th>
+          <th class="text-left">Fullname</th>
+          <th class="text-left">Email</th>
+          <th class="text-left">Phone</th>
+          <th class="text-left">Created</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in items" :key="item._id" >
+          <td>{{item.username}}</td>
+          <td>{{item.fullname}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.create_date | formatDate}}</td>
+          <td>   <v-btn icon v-on:click="editUser(item._id)">
+            <v-icon> mdi-pencil-circle</v-icon>
+          </v-btn>
+            <v-btn icon v-on:click="deleteItem(item._id)">
+              <v-icon>mdi-delete-circle</v-icon>
+            </v-btn>
+            <v-btn icon v-on:click="viewUser(item._id)">
+              <v-icon>mdi-eye</v-icon>
+            </v-btn>
+          </td>
+        </tr>
+        </tbody>
+      </v-simple-table>
+      <v-fab-transition>
+        <v-btn
+                fab
+                absolute
+                small
+                bottom
+                right
+                v-on:click="new_user()"
+                class="v-btn--example">
+          <v-icon>mdi-account-multiple-plus</v-icon>
+        </v-btn>
+      </v-fab-transition>
+
+
+
+    </div>
+
+
+
+
+  </section>
+
