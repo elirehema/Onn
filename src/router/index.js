@@ -1,15 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
-import HomeRoutes from './home'
-import UserRouter from './user_router'
-import ProductsRouter from './products'
 import LoginRouter from './login'
 import RegistrationRouter from './registration'
-import UserDetailRouter from './user_details'
-import AddUserRouter from './add_user'
-import ChatRoomRouter  from './chat_room'
+import NavDrawerRouter  from './navigation_drawers'
 
 //Imports from Pages
 import PageNotFound from '@/components/PageNotFound'
@@ -26,14 +20,9 @@ const router = new Router({
             name: 'PageNotFound',
             component: PageNotFound
         },
-        ChatRoomRouter,
-        HomeRoutes,
-        UserRouter,
-        ProductsRouter,
         LoginRouter,
         RegistrationRouter,
-        UserDetailRouter,
-        AddUserRouter
+        NavDrawerRouter
 
     ]
 });
