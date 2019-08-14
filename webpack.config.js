@@ -1,4 +1,4 @@
-// webpack.config.js
+// webpack.http-config.js
 
 module.exports = {
     // This is the "main" file which should include all other modules

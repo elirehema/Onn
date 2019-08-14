@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import '../../node_modules/nprogress/nprogress.css'
-import NProgress from 'nprogress';
 
 
 import HomeRoutes from './home'
@@ -39,19 +37,5 @@ const router = new Router({
 
     ]
 });
-/* eslint-disable */
-router.beforeResolve((to,from,next)=>{
-
-    if (to.name){
-        NProgress.start()
-    }
-    next()
-});
-router.afterEach((to, from) => {
-    // Complete the animation of the route progress bar.
-    NProgress.done()
-});
-/* eslint-enable */
-
 
 export default router;

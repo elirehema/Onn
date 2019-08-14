@@ -17,17 +17,12 @@
 <script>
     import TopNavigation from '@/components/TopNavigationDrawer/index'
 
-    import {
-        ALL_PRODUCTS,
-        ALL_PRODUCTS_SUCCESS
-    } from './store/mutation-types'
-
     export default {
         name: 'app',
         data() {
             return {}
         },
-        created: function () {
+    /*created: function () {
             this.$http.interceptors.response.use(undefined, function (err) {
                 return new Promise(function (resolve, reject) {
                     if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
@@ -43,7 +38,7 @@
                 // Loading spinner
                 return this.$store.state.showLoader
             }
-        },
+        },*/
         components: {
             'top-navigations': TopNavigation,
         }
