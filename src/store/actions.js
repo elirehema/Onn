@@ -152,14 +152,15 @@ export const loginActions = {
             commit(LOGIN);
             axios.post(`/auth/login`, user)
                 .then(resp => {
-                    console.log(resp);
-                    const token = resp.data.accessToken;
-                    const user = resp.data.data;
-                    localStorage.setItem('qAccessToken', token);
-                    localStorage.setItem('username', user);
-                    axios.defaults.headers.common['Authorization'] = token;
-                    commit(LOGIN_SUCCESS, token, user);
-                    resolve(resp)
+                    if (resp.data.accessToken != null) {
+                        const token = resp.data.accessToken;
+                        const user = resp.data.data;
+                        localStorage.setItem('qAccessToken', token);
+                        localStorage.setItem('username', user);
+                        axios.defaults.headers.common['Authorization'] = token;
+                        commit(LOGIN_SUCCESS, token, user);
+                        resolve(resp)
+                    }
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR);

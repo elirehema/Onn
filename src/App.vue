@@ -2,7 +2,6 @@
 // ./src/App
 <template>
     <div id="app">
-        <top-navigations></top-navigations>
 
         <!--<div class="overlay" v-products="showLoader">
              <div class="loading-spinner">
@@ -11,11 +10,12 @@
                  <div class="dot dotThree"></div>
              </div>
          </div>-->
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import TopNavigation from '@/components/TopNavigationDrawer/index'
+    import TopNavigation from '@/pages/LoginPage/index'
 
     export default {
         name: 'app',
