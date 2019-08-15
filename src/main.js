@@ -26,6 +26,7 @@ if (token){
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+Vue.use(vuetify)
 
 
 new Vue({

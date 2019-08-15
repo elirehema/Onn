@@ -17,53 +17,83 @@ export default {
         {
             path: '/',
             name: 'Index',
-            component: HomePage
+            component: HomePage,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/index',
             name: 'HomePage',
-            component: HomePage
+            component: HomePage,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/products',
             name: 'ProductList',
             component: ProductsList,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
 
             path: '/user/:id',
             name: 'VieUserComponent',
-            component: ViewUserComponent
+            component: ViewUserComponent,
+            meta: {
+                requiresAuth: true
+            }
         }, {
             path: '/edituser/:id',
             name: 'EditUser',
-            component: EditUser
+            component: EditUser,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
 
             path: '/user/new',
             name: 'CreateUser',
-            component: CreateUserComponent
+            component: CreateUserComponent,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/user/item',
             name: 'CreateItem',
-            component: CreateItem
+            component: CreateItem,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/adduser',
             name: 'AddUser',
             component: AddUserComponent,
+            meta: {
+                requiresAuth: true
+            }
         },
         {
             path: '/chat',
             name: 'ChatRoom',
             component: ChatRoom,
+            meta: {
+                requiresAuth: true
+            },
             children: [
                 {
                     path: '/chats/:id',
                     name: 'Messages',
                     component: ChatMessages,
+                    meta: {
+                        requiresAuth: true
+                    }
                 },
             ]
         }
