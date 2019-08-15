@@ -3,5 +3,8 @@ import LoginPage from '@/pages/LoginPage/index'
 export default {
     path: '/',
     name: 'Login',
-    component: LoginPage
+    component: LoginPage,
+    meta: {
+        requiresAuth: false
+    }
 }

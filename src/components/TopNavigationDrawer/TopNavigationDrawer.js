@@ -24,7 +24,6 @@ export default {
                 {icon: 'mdi-linkedin', url: 'https://linkedin.com/in/elirehema-paul-3755b4124/'},
                 {icon: 'mdi-instagram', url: 'https://instagram.com'}
             ],
-            goDark: true,
             color: 'primary',
             colors: [
                 'primary',
@@ -42,7 +41,6 @@ export default {
         }
     },
     created() {
-        this.$vuetify.theme.dark = '#3f51b5'
     },
     computed: {},
     mounted() {
