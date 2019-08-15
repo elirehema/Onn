@@ -12,9 +12,13 @@ import ChatMessages from '@/pages/ChatRoom/MessagesPage/index'
 
 export default {
     path: '/home',
-    name: 'TopNavigation',
     component: TopNavigation,
     children: [
+        {
+            path: '/',
+            name: 'Index',
+            component: HomePage
+        },
         {
             path: '/index',
             name: 'HomePage',
@@ -50,13 +54,6 @@ export default {
             path: '/adduser',
             name: 'AddUser',
             component: AddUserComponent,
-        },
-        {
-
-            path: '/adduser',
-            name: 'AddUser',
-            component: AddUserComponent,
-
         },
         {
             path: '/chat',

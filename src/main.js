@@ -9,6 +9,8 @@ import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 
 Vue.filter('formatDate', function(value) {
   if (value) {

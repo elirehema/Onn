@@ -1,11 +1,15 @@
 export default {
   name: 'login-page',
   components: {},
-  props: [],
+  props: {
+    source: String,
+  },
+
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      drawer: null,
 
     }
   },

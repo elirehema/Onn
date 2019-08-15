@@ -15,7 +15,6 @@
 </template>
 
 <script>
-    import TopNavigation from '@/pages/LoginPage/index'
 
     export default {
         name: 'app',
@@ -40,12 +39,9 @@
             }
         },*/
         components: {
-            'top-navigations': TopNavigation,
         }
     }
 </script>
 <style>
-    #app {
-        font-family: 'Lato', sans-serif;
-    }
+
 </style>
