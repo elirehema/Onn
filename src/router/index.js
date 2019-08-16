@@ -26,17 +26,27 @@ const router = new Router({
 
     ]
 });
-/*
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (localStorage.getItem('qAccessToken') == null ) {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        if (localStorage.getItem('qAccessToken') == null) {
             next({
                 path: '/',
-                params: {nextUrl: to.fullPath}
+                params: { nextUrl: to.fullPath }
             })
+        } else {
+            next();
+
         }
+    } else if(to.matched.some(record => record.meta.guest)) {
+        if(localStorage.getItem('qAccessToken') == null){
+            next()
+        }
+        else{
+            next({ path: '/reg'})
+        }
+    }else {
+        next()
     }
 });
-*/
 
 export default router;

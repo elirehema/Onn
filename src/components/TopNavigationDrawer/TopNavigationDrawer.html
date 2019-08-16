@@ -15,21 +15,12 @@
                     <v-btn  v-on:click="nativateToHere('products')" text>
                         <v-icon>mdi-playlist-minus</v-icon>
                     </v-btn>
-                   <!-- <v-btn>
-                        <router-link :to="{ name: 'AddUser' }">Add User</router-link>
-                    </v-btn>-->
                 </v-toolbar-items>
 
                 <template >
                     <v-btn icon v-if="accToken != null"  v-on:click="logout()">
                         <v-icon>mdi-export</v-icon>
                     </v-btn>
-                    <!--<v-btn icon>
-                      <v-icon>mdi-delete-circle</v-icon>
-                    </v-btn>
-                    <v-btn icon>
-                      <v-icon>mdi-plus-circle</v-icon>
-                    </v-btn>-->
                 </template>
             </v-toolbar>
         </v-app-bar>

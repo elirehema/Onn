@@ -5,6 +5,6 @@ export default {
     name: 'Login',
     component: LoginPage,
     meta: {
-        requiresAuth: false
+        guest: true
     }
 }

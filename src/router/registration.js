@@ -6,6 +6,6 @@ export default {
     name: 'Registration',
     component: UserRegistration,
     meta: {
-        requiresAuth: false
+        guest: true
     }
 }
