@@ -7,6 +7,40 @@ export default {
       fab: false,
       hidden: false,
       tabs: null,
+      headers: [
+           {
+             sortable: false,
+             text: 'Username',
+             value: 'username'
+           },
+           {
+             sortable: false,
+             text: 'FullName',
+             value: 'fullname'
+           },
+           {
+             sortable: false,
+             text: 'Phone',
+             value: 'phone'
+           },
+           {
+             sortable: false,
+             text: 'Email',
+             value: 'email'
+           },
+           {
+             sortable: false,
+             text: 'Created On',
+             value: 'create_date',
+             align: 'right'
+           },
+           {
+             sortable: false,
+             text: 'Actions',
+             value: 'note',
+             align: 'right'
+           }
+         ],
     };
   },
   created: function() {

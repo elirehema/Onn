@@ -8,6 +8,7 @@ import CreateItem from '../components/CreateItem.vue';
 import AddUserComponent from "../pages/AddUser/index";
 import ChatRoom from '@/pages/ChatRoom/ChatRoomPage/index'
 import ChatMessages from '@/pages/ChatRoom/MessagesPage/index'
+import UserProfileComponent from '@/pages/UserProfile/index'
 
 
 export default {
@@ -75,6 +76,14 @@ export default {
             path: '/adduser',
             name: 'AddUser',
             component: AddUserComponent,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/me/:id',
+            name: 'Profile',
+            component: UserProfileComponent,
             meta: {
                 requiresAuth: true
             }

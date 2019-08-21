@@ -1,0 +1,48 @@
+
+<section class="user-profile">
+    <v-container class="grey lighten-5">
+        <v-row
+                class="mb-6"
+                no-gutters>
+            <v-col
+                    v-for="n in 1"
+                    :key="n+1"
+                    :sm="n === 1 ? 4 : 8">
+                <v-card
+                        class="pa-2"
+                        v-for="p in account"
+                        :key="p.title"
+
+                        tile>
+
+                    <v-list-item two-line>
+
+                        <v-list-item-icon>
+                            <v-icon v-text="p.icon"></v-icon>
+                        </v-list-item-icon>&nbsp;
+                        <v-list-item-content>
+                            <v-list-item-title>{{p.title}}</v-list-item-title>
+                            <v-list-item-subtitle>{{p.subtitle}}</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+
+                </v-card>
+
+            </v-col>
+            <v-col
+                    v-for="n in 1"
+                    :key="n"
+                    :sm="n === 1 ? 8 : 4">
+                <v-card
+                        class="pa-2"
+                        outlined
+                        tile>
+                    <router-view></router-view>
+                </v-card>
+
+            </v-col>
+
+        </v-row>
+    </v-container>
+</section>
+

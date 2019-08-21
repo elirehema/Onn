@@ -25,5 +25,8 @@
     }
 </script>
 <style>
+#app{
+font-family: 'Montserrat', sans-serif;
+}
 
 </style>
