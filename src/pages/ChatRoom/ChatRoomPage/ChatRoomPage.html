@@ -1,7 +1,26 @@
 <section class="chat-room-page">
   <div class="split left">
     <div class="centered">
-      <v-card
+
+      <v-card>
+        <v-list two-line>
+          <template v-for="(item, index) in users.slice(0, 6)">
+            <v-subheader v-if="item.username" :key="item.username">{{ item.username }}</v-subheader>
+            <v-divider  :key="index" ></v-divider>
+            <v-list-item :key="item.username" @click="redirectMe(item._id)">
+              <v-list-item-avatar>
+                <v-img src="@/assets/img/chat_bot.png"></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title v-html="item.username"></v-list-item-title>
+                <v-list-item-subtitle v-html="item.fullname"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </v-list>
+      </v-card>
+
+      <!--<v-card
               class="chat mx-auto"
               max-width="93%"
               v-for="item in users" :key="item._id" v-on:click="redirectMe(item._id)">
@@ -28,7 +47,7 @@
             </v-layout>
           </v-list-item>
         </v-card-actions>
-      </v-card>
+      </v-card>-->
 
     </div>
   </div>

@@ -1,7 +1,50 @@
 <section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div>
+    <material-card
+     color="green"
+     title="Simple Table"
+     text="Here is a subtitle for this table"
+   >
+     <v-data-table
+       :headers="headers"
+       :items="items"
+       hide-actions
+     >
+       <template
+         slot="headerCell"
+         slot-scope="{ header }"
+       >
+         <span
+           class="subheading font-weight-light text-success text--darken-3"
+           v-text="header.text"
+         />
+       </template>
+       <template
+         slot="items"
+         slot-scope="{ item }"
+       >
+         <td>{{ item.username }}</td>
+         <td>{{ item.fullname }}</td>
+         <td>{{ item.phone}}</td>
+<td>{{ item.email}}</td>
 
-    <v-simple-table fixed-header  height="300px" >
+<td>{{item.create_date | formatDate}}</td>
+<td>
+ <v-btn icon v-on:click="editUser(item._id)">
+  <v-icon> mdi-pencil-circle</v-icon>
+</v-btn>
+  <v-btn icon v-on:click="deleteItem(item._id)">
+    <v-icon>mdi-delete-circle</v-icon>
+  </v-btn>
+  <v-btn icon v-on:click="viewUser(item._id)">
+    <v-icon>mdi-eye</v-icon>
+  </v-btn>
+</td>
+       </template>
+     </v-data-table>
+   </material-card>
+
+    <!--<v-simple-table fixed-header  height="300px" >
       <thead>
       <tr>
         <th class="text-left">Username</th>
@@ -31,7 +74,7 @@
         </td>
       </tr>
       </tbody>
-    </v-simple-table>
+    </v-simple-table>-->
     <v-fab-transition>
       <v-btn
               fab
@@ -53,4 +96,3 @@
 
 
 </section>
-
