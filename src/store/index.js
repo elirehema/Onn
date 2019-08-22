@@ -8,7 +8,7 @@ import { productActions, manufacturerActions,loginActions,
          userActions, registrationActions,messsageAction } from './actions'
 
 export default new Vuex.Store({
-    strict: true,
+    strict: process.env.NODE_ENV !== 'production',
     state: {
         cart: [],
         showLoader: false,
@@ -18,6 +18,7 @@ export default new Vuex.Store({
         manufacturers: [],
         users: [],
         user:{},
+        profile: {},
         auths: {},
         deleted: {},
         messages: [],

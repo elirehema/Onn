@@ -11,11 +11,11 @@ export default {
             password_confirmation: "",
             nameRules: [
                 v => !!v || 'Name is required',
-                v => v.length <= 10 || 'Name must be less than 10 characters',
+                v => v.length > 10 || 'Email must not be less than 10 characters',
             ],
             passwordRules:[
                 v => !!v || 'Password is required',
-                v => v.length > 10 || 'Password must be not less than 10 characters',
+                v => v.length > 8 || 'Password must be not less than 8 characters',
             ],
             emailRules: [
                 v => !!v || 'E-mail is required',

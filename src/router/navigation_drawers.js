@@ -81,7 +81,7 @@ export default {
             }
         },
         {
-            path: '/me/:id',
+            path: '/profile',
             name: 'Profile',
             component: UserProfileComponent,
             meta: {
