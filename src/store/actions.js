@@ -29,7 +29,7 @@ import {
     SEND_MESSAGE_SUCCESS,
     GET_MESSAGE,
     GET_MESSAGE_SUCCESS,
-    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE, LOGOUT_FAILED
+    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE, LOGOUT_FAILED, USER_PROFILE, USER_PROFILE_SUCCESS, USER_PROFILE_FAILURE, UPDATE_PROFILE, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE
 } from './mutation-types'
 
 export const productActions = {
@@ -87,6 +87,28 @@ export const userActions = {
             commit(DELETE_USER_SUCCESS, response.data);
         })
     },
+    currentProfile({commit}, payload){
+        commit(USER_PROFILE);
+        axios.get(`/users/${payload}`)
+        .then(response => {
+            commit(USER_PROFILE_SUCCESS, response.data.data);
+        })
+        .catch(function (error) {
+            commit(USER_PROFILE_FAILURE);
+            console.log(err.message);
+          });
+    },
+    updateprofile({commit}, payload){
+        commit(UPDATE_PROFILE);
+        axios.put(`/users/${payload.id}`)
+        .then(response => {
+            commit(UPDATE_PROFILE_SUCCESS, response.data.data);
+        })
+        .catch(err => {
+            commit(UPDATE_PROFILE_FAILURE, err);
+            console.log(err.message);
+        })
+    },
     addUser({commit}, payload) {
         commit(ADD_USER);
         axios.post(`/users`, payload).then(response => {
@@ -137,6 +159,8 @@ export const registrationActions = {
                 .catch(err => {
                     commit(LOGIN_ERROR, err);
                     localStorage.removeItem('token');
+                    localStorage.removeItem('uuid');
+                    localStorage.removeItem('uumail');
                     reject(err)
                 })
         })
@@ -156,7 +180,8 @@ export const loginActions = {
                         const token = resp.data.accessToken;
                         const user = resp.data.data;
                         localStorage.setItem('qAccessToken', token);
-                        localStorage.setItem('username', user);
+                        localStorage.setItem('uuid', user.id );
+                        localStorage.setItem('uumail', user.email );
                         axios.defaults.headers.common['Authorization'] = token;
                         commit(LOGIN_SUCCESS, token, user);
                         resolve(resp)

@@ -30,7 +30,7 @@ import {
     DELETE_USER,
     DELETE_USER_SUCCESS,
     SEND_MESSAGE,
-    SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE, GET_MESSAGE, GET_MESSAGE_SUCCESS, GET_MESSAGE_FAILURE,
+    SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE, GET_MESSAGE, GET_MESSAGE_SUCCESS, GET_MESSAGE_FAILURE, USER_PROFILE, USER_PROFILE_SUCCESS, USER_PROFILE_FAILURE, UPDATE_PROFILE, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE,
 } from './mutation-types'
 
 export const productMutations = {
@@ -139,7 +139,27 @@ export const loginMutations = {
     },
     [LOGOUT](state) {
         state.token = ''
-    }
+    },
+    [USER_PROFILE](state){
+        state.showLoader = true;
+    },
+    [USER_PROFILE_SUCCESS](state, profile){
+        state.showLoader = false;
+        state.profile= profile;
+    },
+    [USER_PROFILE_FAILURE](state){
+        state.showLoader = false;
+    },
+    [UPDATE_PROFILE](state){
+        state.showLoader = true;
+    },
+    [UPDATE_PROFILE_SUCCESS](state, profile){
+        state.showLoader = false;
+        state.profile = profile;
+    },
+    [UPDATE_PROFILE_FAILURE](state){
+        state.showLoader = false;
+    },
 };
 export const messageMutation = {
     [SEND_MESSAGE](state){
