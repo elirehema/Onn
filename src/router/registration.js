@@ -2,7 +2,10 @@ import UserRegistration from '@/pages/RegistrationPage/index'
 
 
 export default {
-    path: '/register',
+    path: '/reg',
     name: 'Registration',
-    component: UserRegistration
+    component: UserRegistration,
+    meta: {
+        guest: true
+    }
 }

@@ -4,13 +4,12 @@ import store from './store'
 import App from './App';
 import moment from 'moment';
 import VueAxios from 'vue-axios';
-import axios from 'axios';
+import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 
 Vue.filter('formatDate', function(value) {
@@ -27,10 +26,8 @@ if (token){
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-<<<<<<< Updated upstream
-=======
-Vue.use(vuetify);
->>>>>>> Stashed changes
+
+Vue.use(vuetify)
 
 
 new Vue({

@@ -1,31 +1,53 @@
 export default {
   name: 'login-page',
   components: {},
-  props: [],
-  data () {
+  props: {
+    source: String,
+  },
+
+  data() {
     return {
+      valid: false,
       username: "",
-      password: ""
+      password: "",
+      drawer: null,
+      show1: false,
+      rules: {
+        required: value => !!value || 'Required.',
+        min: v => v.length >= 8 || 'Min 8 characters',
+        emailMatch: () => ('The email and password you entered don\'t match'),
+      },
 
     }
   },
-  computed: {
-
+  computed: {},
+  mounted() {
+    if (localStorage.qAccessToken) {
+      this.$router.push('/home')
+    }
   },
-  mounted () {
-
+  watch: {
+    accessToken(newToken) {
+      localStorage.qAccessToken = newToken;
+    }
   },
   methods: {
-    login:function () {
-      let data ={
-        username: this.username,
+    login: function () {
+      let data = {
+        email: this.username,
         password: this.password
-      }
+      };
+      this.$store.dispatch('login', data).then(response => {
+        if (response != null){
+          this.$router.push('/home')
+        }
+      }, error => {
+        console.log(error.message)
+      });
 
-      this.$store.dispatch('login',data)
-      //.then(()=> this.$router.push('/'))
-          .catch(err => console.log(err))
-    }
-
+    },
+    nativateToHere(id) {
+      this.$router.push('/' + id)
+    },
   }
 }

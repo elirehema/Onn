@@ -1,21 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import '../../node_modules/nprogress/nprogress.css'
-import NProgress from 'nprogress';
 
-
-import HomeRoutes from './home'
-import UserRouter from './user_router'
-import ProductsRouter from './products'
 import LoginRouter from './login'
 import RegistrationRouter from './registration'
-import UserDetailRouter from './user_details'
-import AddUserRouter from './add_user'
-import ChatRoomRouter  from './chat_room'
+import NavDrawerRouter from './navigation_drawers'
 
 //Imports from Pages
 import PageNotFound from '@/components/PageNotFound'
-
 
 
 Vue.use(Router);
@@ -26,32 +17,31 @@ const router = new Router({
         {
             path: '*',
             name: 'PageNotFound',
-            component: PageNotFound
+            component: PageNotFound,
+            meta: {
+                guest: true
+            }
         },
-        ChatRoomRouter,
-        HomeRoutes,
-        UserRouter,
-        ProductsRouter,
         LoginRouter,
         RegistrationRouter,
-        UserDetailRouter,
-        AddUserRouter
+        NavDrawerRouter
 
     ]
 });
-/* eslint-disable */
-router.beforeResolve((to,from,next)=>{
 
-    if (to.name){
-        NProgress.start()
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (localStorage.getItem('qAccessToken') == null){
+            next('/')
+        } else {
+            next()
+        }
+
+    }else {
+        next()
     }
-    next()
-});
-router.afterEach((to, from) => {
-    // Complete the animation of the route progress bar.
-    NProgress.done()
-});
-/* eslint-enable */
 
+});
 
 export default router;

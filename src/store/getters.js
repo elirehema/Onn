@@ -50,6 +50,9 @@ export const messageGetter = {
 export const registrationGetters = {
     loginAuths: (state)=>{
         return state.auths
+    },
+    profileInfo: (state)=>{
+        return state.profile;
     }
 };
 
