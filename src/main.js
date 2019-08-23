@@ -27,6 +27,10 @@ if (token){
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+<<<<<<< Updated upstream
+=======
+Vue.use(vuetify);
+>>>>>>> Stashed changes
 
 
 new Vue({

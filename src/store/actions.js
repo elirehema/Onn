@@ -101,8 +101,7 @@ export const messsageAction = {
         commit(GET_MESSAGE);
         axios.get(`${API_BASE}/message`)
             .then(response => {
-                commit(GET_MESSAGE_SUCCESS, response.data.data)
-                console.log(response.data)
+                commit(GET_MESSAGE_SUCCESS, response.data.data[0].children);
             })
             .catch(err => {
                 commit(GET_MESSAGE_FAILURE, err);
@@ -153,12 +152,24 @@ export const loginActions = {
             commit(LOGIN);
             axios.get(`${API_BASE}/auth/login`, user)
                 .then(resp => {
+<<<<<<< Updated upstream
                     const token = resp.data.token;
                     const user = resp.data.user;
                     localStorage.setItem('token', token);
                     axios.defaults.headers.common['Authorization'] = token;
                     commit(LOGIN_SUCCESS, token, user);
                     resolve(resp)
+=======
+                    if (resp.data.accessToken != null) {
+                        const token = resp.data.accessToken;
+                        const user = resp.data.data;
+                        localStorage.setItem('qAccessToken', token);
+                        localStorage.setItem('uuid', user.id );
+                        localStorage.setItem('uumail', user.email );
+                        commit(LOGIN_SUCCESS, token, user);
+                        resolve(resp)
+                    }
+>>>>>>> Stashed changes
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR);

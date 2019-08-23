@@ -1,6 +1,49 @@
 <section class="chat-room-page">
+  <v-card>
+    <v-toolbar flat color="primary" dark>
+      <v-toolbar-title>Chat Room</v-toolbar-title>
+    </v-toolbar>
+    <v-tabs vertical>
+      <v-tab v-for="(item, index) in users.slice(0, 6)">
+        <v-icon left>mdi-account</v-icon>
+        {{item.username}}
+      </v-tab>
+
+
+      <v-tab-item v-for="(item, index) in users.slice(0, 6)">
+        <v-card flat :key="index" >
+          <router-view></router-view>
+        </v-card>
+      </v-tab-item>
+    </v-tabs>
+  </v-card>
+
+
+
   <div class="split left">
     <div class="centered">
+<<<<<<< Updated upstream
+=======
+
+      <!--<v-card>
+        <v-list two-line>
+          <template v-for="(item, index) in users.slice(0, 6)">
+            <v-subheader v-if="item.username" :key="item.username">{{ item.username }}</v-subheader>
+            <v-divider  :key="index" ></v-divider>
+            <v-list-item :key="item._id" @click="redirectMe(item._id)">
+              <v-list-item-avatar>
+                <v-img src="@/assets/img/chat_bot.png"></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title v-html="item.username"></v-list-item-title>
+                <v-list-item-subtitle v-html="item.fullname"></v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </v-list>
+      </v-card>
+
+>>>>>>> Stashed changes
       <v-card
               class="chat mx-auto"
               max-width="93%"
@@ -35,7 +78,7 @@
 
   <div class="split right">
     <div class="centered">
-      <router-view></router-view>
+
     </div>
   </div>
 </section>
