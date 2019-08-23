@@ -1,60 +1,32 @@
 <section class="chat-room-page">
-  <div class="split left">
-    <div class="centered">
+  <v-card>
+    <v-toolbar flat color="primary" dark>
+      <v-toolbar-title>Chat Room</v-toolbar-title>
+    </v-toolbar>
+    <v-tabs vertical>
+      <v-tab v-for="(item, index) in users.slice(0, 6)">
+        <v-icon left>mdi-account</v-icon>
+        {{item.username}}
+      </v-tab>
 
-      <v-card>
-        <v-list two-line>
-          <template v-for="(item, index) in users.slice(0, 6)">
-            <v-subheader v-if="item.username" :key="item.username">{{ item.username }}</v-subheader>
-            <v-divider  :key="index" ></v-divider>
-            <v-list-item :key="item.username" @click="redirectMe(item._id)">
-              <v-list-item-avatar>
-                <v-img src="@/assets/img/chat_bot.png"></v-img>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title v-html="item.username"></v-list-item-title>
-                <v-list-item-subtitle v-html="item.fullname"></v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
 
-      <!--<v-card
-              class="chat mx-auto"
-              max-width="93%"
-              v-for="item in users" :key="item._id" v-on:click="redirectMe(item._id)">
-        <v-card-actions>
-          <v-list-item class="grow">
-            <v-list-item-avatar color="grey darken-3">
-              <v-img
-                      class="elevation-6"
-                      src="@/assets/img/chat_bot.png"
-              ></v-img>
-            </v-list-item-avatar>
-            </v-list-item-avatar>
+      <v-tab-item v-for="(item, index) in users.slice(0, 6)">
+        <v-card flat :key="index" >
+          <router-view></router-view>
+        </v-card>
+      </v-tab-item>
+    </v-tabs>
+  </v-card>
 
-            <v-list-item-content>
-              <v-list-item-title>{{item.username}}</v-list-item-title>
-              <v-list-item-subtitle>{{item.fullname}}</v-list-item-subtitle>
-            </v-list-item-content>
 
-            <v-layout
-                    align-center
-                    justify-end>
-              <v-icon class="mr-1">mdi-chat</v-icon>
-              <span class="subheading mr-2">256</span>
-            </v-layout>
-          </v-list-item>
-        </v-card-actions>
-      </v-card>-->
+
 
     </div>
   </div>
 
   <div class="split right">
     <div class="centered">
-      <router-view></router-view>
+
     </div>
   </div>
 </section>

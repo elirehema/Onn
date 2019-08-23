@@ -122,8 +122,7 @@ export const messsageAction = {
         commit(GET_MESSAGE);
         axios.get(`/message`)
             .then(response => {
-                commit(GET_MESSAGE_SUCCESS, response.data.data)
-                console.log(response.data)
+                commit(GET_MESSAGE_SUCCESS, response.data.data[0].children);
             })
             .catch(err => {
                 commit(GET_MESSAGE_FAILURE, err);
@@ -176,16 +175,17 @@ export const loginActions = {
             commit(LOGIN);
             axios.post(`/auth/login`, user)
                 .then(resp => {
+
                     if (resp.data.accessToken != null) {
                         const token = resp.data.accessToken;
                         const user = resp.data.data;
                         localStorage.setItem('qAccessToken', token);
                         localStorage.setItem('uuid', user.id );
                         localStorage.setItem('uumail', user.email );
-                        axios.defaults.headers.common['Authorization'] = token;
                         commit(LOGIN_SUCCESS, token, user);
                         resolve(resp)
                     }
+
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR);
