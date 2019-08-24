@@ -95,7 +95,7 @@ export const userActions = {
         })
         .catch(function (error) {
             commit(USER_PROFILE_FAILURE);
-            console.log(err.message);
+            console.log(error.message);
           });
     },
     updateprofile({commit}, payload){
