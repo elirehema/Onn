@@ -61,12 +61,6 @@ export default {
 
   },
   methods: {
-    fetchItems() {
-      let uri = "http://localhost:8080/api/users";
-      this.axios.get(uri).then(response => {
-        // this.items = response.data.data;
-      });
-    },
     deleteItem(id) {
       let uri = "http://localhost:8080/api/users/" + id;
       this.items.splice(id, 1);

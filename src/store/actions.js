@@ -166,10 +166,8 @@ export const registrationActions = {
     }
 
 };
-
+ /* eslint-disable */
 export const loginActions = {
-
-    /* eslint-disable */
     login({commit}, user) {
         return new Promise((resolve, reject) => {
             commit(LOGIN);
@@ -209,5 +207,5 @@ export const loginActions = {
                 reject(err)
             })
     }
-    /* eslint-enable */
 };
+ /* eslint-enable */
