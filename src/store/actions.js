@@ -95,7 +95,7 @@ export const userActions = {
         })
         .catch(function (error) {
             commit(USER_PROFILE_FAILURE);
-            console.log(err.message);
+            console.log(error.message);
           });
     },
     updateprofile({commit}, payload){
@@ -166,10 +166,8 @@ export const registrationActions = {
     }
 
 };
-
+ /* eslint-disable */
 export const loginActions = {
-
-    /* eslint-disable */
     login({commit}, user) {
         return new Promise((resolve, reject) => {
             commit(LOGIN);
@@ -209,5 +207,5 @@ export const loginActions = {
                 reject(err)
             })
     }
-    /* eslint-enable */
 };
+ /* eslint-enable */

@@ -1,11 +1,14 @@
 // webpack.http-config.js
-
+var path = require('path')
 module.exports = {
     // This is the "main" file which should include all other modules
     entry: './src/main.js',
     // Where should the compiled file go?
     output: {
-        filename: 'bundle.js'
+      path: path.resolve(__dirname, './dist'),
+      publicPath: '/dist/',
+      filename: 'bundle.js'
+
     },
     resolve: {
         extensions: ['.js','.vue','.json'],
@@ -37,6 +40,11 @@ module.exports = {
             }
         ]
     },
+    performance: {
+            hints: false,
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000
+        },
     devServer: {
         port: 3000
     }
