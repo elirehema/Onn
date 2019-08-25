@@ -1,4 +1,4 @@
-# elog [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)
+# Onn [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)
 
 ## Project setup 
 ```
