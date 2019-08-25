@@ -42,6 +42,6 @@ module.exports = {
         port: 3000
     },
     performance: {
-        hints: false
+        hints: process.env.NODE_ENV === 'production' ? "warning" : false
     }
 }
