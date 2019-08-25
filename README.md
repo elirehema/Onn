@@ -1,6 +1,6 @@
-# elog
+# elog [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)
 
-## Project setup
+## Project setup 
 ```
 npm install
 ```
