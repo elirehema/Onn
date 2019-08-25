@@ -40,5 +40,8 @@ module.exports = {
     },
     devServer: {
         port: 3000
+    },
+    performance: {
+        hints: false
     }
 }
