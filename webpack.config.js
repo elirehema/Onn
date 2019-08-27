@@ -5,7 +5,11 @@ module.exports = {
     entry: './src/main.js',
     // Where should the compiled file go?
     output: {
+
+         path: path.resolve(__dirname, './Onn'),
+         publicPath: '/dist/',
       filename: 'bundle.js'
+
 
     },
     resolve: {
