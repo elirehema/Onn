@@ -17,4 +17,3 @@ const etify  = new Vuetify({
 
 });
 export default etify;
-

@@ -66,6 +66,12 @@
                             <v-list-item-title v-text="item.text"></v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item>
+                          <v-switch 
+                                    :value="true"
+                                    @change="toggle($event !== null, $event)"
+                                    ></v-switch>
+                        </v-list-item>
                 </v-list-item-group>
             </v-list>
         </v-navigation-drawer>

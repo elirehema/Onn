@@ -1,20 +1,5 @@
 <section class="messages-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
-    <!--<v-simple-table height="350px">
-        <thead>
-        <tr>
-            <th class="text-left">Name</th>
-            <th class="text-left">Sender</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="item in messages" :key="item.name" id="cont">
-            <td>{{ item.name }}</td>
-            <td>{{ item.message }}</td>
-        </tr>
-        </tbody>
-    </v-simple-table>-->
-
     <v-list two-line>
             <v-list-item v-for="item in messages" :key="item.name">
                 <v-list-item-avatar>
