@@ -12,7 +12,7 @@ import PageNotFound from '@/components/PageNotFound'
 Vue.use(Router);
 
 const router = new Router({
-    mode: 'history',
+    mode: 'hash',
     routes: [
         {
             path: '*',
