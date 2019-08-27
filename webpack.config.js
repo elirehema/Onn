@@ -5,8 +5,6 @@ module.exports = {
     entry: './src/main.js',
     // Where should the compiled file go?
     output: {
-      path: path.resolve(__dirname, './dist'),
-      publicPath: '/dist/',
       filename: 'bundle.js'
 
     },
@@ -40,12 +38,10 @@ module.exports = {
             }
         ]
     },
-    performance: {
-            hints: false,
-            maxEntrypointSize: 512000,
-            maxAssetSize: 512000
-        },
     devServer: {
         port: 3000
+    },
+    performance: {
+        hints: process.env.NODE_ENV === 'production' ? "warning" : false
     }
 }
