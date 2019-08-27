@@ -102,7 +102,7 @@ export default {
       localStorage.removeItem('username');
       this.$router.push('/');
     },
-    toggle(value, event) {
+    toggle(value) {
       if (`${value}` === 'true') {
         this.$vuetify.theme.dark = true;
       } else {
