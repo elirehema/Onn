@@ -1,5 +1,10 @@
 # Onn [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)
 
+## Project Hosting
+This project is hosted in:
+    * [GitHub Pages](https://elirehema.github.io/Onn/#/home)
+    * [Heroku Pages](https://infoseeker.herokuapp.com)
+
 ## Project setup 
 ```
 npm install
