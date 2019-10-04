@@ -9,6 +9,7 @@ import AddUserComponent from "../pages/AddUser/index";
 import ChatRoom from '@/pages/ChatRoom/ChatRoomPage/index'
 import ChatMessages from '@/pages/ChatRoom/MessagesPage/index'
 import UserProfileComponent from '@/pages/UserProfile/index'
+import UploadsComponent from '@/components/pUploads/index'
 
 
 export default {
@@ -84,6 +85,14 @@ export default {
             path: '/profile',
             name: 'Profile',
             component: UserProfileComponent,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/uploads',
+            name: 'Uploads',
+            component: UploadsComponent,
             meta: {
                 requiresAuth: true
             }

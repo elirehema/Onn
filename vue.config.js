@@ -1,8 +1,9 @@
 // vue.config.js
 module.exports = {
 
-  publicPath: process.env.NODE_ENV === 'production'
-    ? 'https://github.com/elirehema/Onn/'
+
+  baseUrl: process.env.NODE_ENV === 'production'
+    ? './'
     : '/'
 
 }

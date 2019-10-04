@@ -40,7 +40,7 @@ export default {
         {
           text: 'Uploads',
           icon: 'mdi-upload',
-          route: 'index'
+          route: 'uploads'
         },
         {
           text: 'Backups',

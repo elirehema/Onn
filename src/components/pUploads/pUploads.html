@@ -1,0 +1,24 @@
+
+<section class="p-uploads">
+    <v-card>
+        <v-toolbar flat color="primary" dark>
+          <v-toolbar-title>Uploads</v-toolbar-title>
+        </v-toolbar>
+      </v-card>
+
+  <div>
+    <!-- Styled -->
+    <b-form-file
+      v-model="file"
+      :state="Boolean(file)"
+      placeholder="Choose a file or drop it here..."
+      drop-placeholder="Drop file here..."
+    ></b-form-file>
+    <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
+
+    <!-- Plain mode -->
+    <b-form-file v-model="file2" class="mt-3" plain></b-form-file>
+    <div class="mt-3">Selected file: {{ file2 ? file2.name : '' }}</div>
+  </div>
+</section>
+
