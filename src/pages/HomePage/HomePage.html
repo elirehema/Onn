@@ -1,6 +1,6 @@
 <section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div>
-    <material-card
+    <v-card
      color="green"
      title="Simple Table"
      text="Here is a subtitle for this table"
@@ -8,7 +8,7 @@
      <v-data-table
        :headers="headers"
        :items="items"
-       hide-actions
+       hide-default-footer
      >
        <template
          slot="headerCell"
@@ -42,7 +42,7 @@
 </td>
        </template>
      </v-data-table>
-   </material-card>
+   </v-card>
 
     <!--<v-simple-table fixed-header  height="300px" >
       <thead>
