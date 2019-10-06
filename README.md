@@ -2,8 +2,14 @@
 
 ## Project Hosting
 This project is hosted in:
-    * [GitHub Pages](https://elirehema.github.io/Onn/#/home)
-    * [Heroku Pages](https://infoseeker.herokuapp.com)
+
+    Markup : * Hosts
+                * [GitHub Pages](https://elirehema.github.io/Onn/#/home)
+                * [Heroku Pages](https://infoseeker.herokuapp.com)
+
+    Markup : * Login Credentials:
+                * Username/email: demomail@gmail.com
+                * Password: pass12345678
 
 ## Project setup 
 ```
