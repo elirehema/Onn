@@ -29,7 +29,10 @@ const router = new Router({
     ]
 });
 
-
+/**
+ * Run this condition for Each routing 
+ * Commented for development purpose**/
+/** 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (localStorage.getItem('qAccessToken') == null){
@@ -43,5 +46,6 @@ router.beforeEach((to, from, next) => {
     }
 
 });
+**/
 
 export default router;
