@@ -2,14 +2,11 @@
 
 ## Project Hosting
 This project is hosted in:
-
-    Markup : * Hosts
-                * [GitHub Pages](https://elirehema.github.io/Onn/#/home)
-                * [Heroku Pages](https://infoseeker.herokuapp.com)
-
-    Markup : * Login Credentials:
-                * Username/email: demomail@gmail.com
-                * Password: pass12345678
+Host Name and Link | UsernameEmail | Password
+------------------ | ------------- | --------------
+[GitHub Pages](https://elirehema.github.io/Onn/#/home) |  demomail@gmail.com | pass12345678
+[Heroku Cloud](https://infoseeker.herokuapp.com) |  demomail@gmail.com | pass12345678
+  
 
 ## Project setup 
 ```
