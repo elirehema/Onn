@@ -3,7 +3,7 @@
 ## Project Hosting
 This project is hosted in:
 
-2
+
 Host Name and Link | UsernameEmail | Password
 ------------------ | ------------- | --------------
 [GitHub Pages](https://elirehema.github.io/Onn/#/home) |  demomail@gmail.com | pass12345678
