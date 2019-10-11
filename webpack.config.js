@@ -1,6 +1,7 @@
 // webpack.http-config.js
-var path = require('path')
+var path = require('path');
 module.exports = {
+    
     // This is the "main" file which should include all other modules
     entry: './src/main.js',
     // Where should the compiled file go?
@@ -44,4 +45,4 @@ module.exports = {
     performance: {
         hints: process.env.NODE_ENV === 'production' ? "warning" : false
     }
-}
+};
