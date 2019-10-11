@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "AAIE,oCAAc;EACZ,KAAK,EAAE,IAAI",
-"sources": ["MessagesPage.scss"],
-"names": [],
-"file": "MessagesPage.css"
+    "version": 3,
+    "mappings": "AAGA,AACE,UADQ,CACR,SAAS,EADX,UAAU,CACG,GAAG,CAAA;EACZ,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "MessagesPage.scss"
+    ],
+    "names": [],
+    "file": "MessagesPage.css"
 }

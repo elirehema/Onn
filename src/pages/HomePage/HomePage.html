@@ -1,71 +1,20 @@
 <section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
-  <div></div>
- <!-- <div>
-    <v-card
-     color="green"
-     title="Simple Table"
-     text="Here is a subtitle for this table"
-   >
-     <v-data-table
-       :headers="headers"
-       :items="items"
-       hide-default-footer
-     >
-       <template
-         slot="headerCell"
-         slot-scope="{ header }"
-       >
-         <span
-           class="subheading font-weight-light text-success text--darken-3"
-           v-text="header.text"
-         />
-       </template>
-       <template
-         slot="items"
-         slot-scope="{ item }"
-       >
-         <td>{{ item.username }}</td>
-         <td>{{ item.fullname }}</td>
-         <td>{{ item.phone}}</td>
-<td>{{ item.email}}</td>
 
-<td>{{item.create_date | formatDate}}</td>
-<td>
- <v-btn icon v-on:click="editUser(item._id)">
-  <v-icon> mdi-pencil-circle</v-icon>
-</v-btn>
-  <v-btn icon v-on:click="deleteItem(item._id)">
-    <v-icon>mdi-delete-circle</v-icon>
-  </v-btn>
-  <v-btn icon v-on:click="viewUser(item._id)">
-    <v-icon>mdi-eye</v-icon>
-  </v-btn>
-</td>
-       </template>
-     </v-data-table>
-   </v-card>
+  <b-container fluid>
+    <b-row>
+      <b-card v-for="item in items" title="Card Title" img-src="https://picsum.photos/600/300/?image=25" img-alt="Image"
+        img-top tag="article" style="max-width: 20rem;" class="mb-2">
+        <b-card-text>{{item.email}}
+        </b-card-text>
+        <b-card-text></b-card-text>
+        <b-card-text>$500</b-card-text>
+      </b-card>
 
-
-    <v-fab-transition>
-      <v-btn
-              fab
-              absolute
-              small
-              bottom
-              right
-              v-on:click="new_user()"
-              class="v-btn--example">
-        <v-icon>mdi-account-multiple-plus</v-icon>
-      </v-btn>
-    </v-fab-transition>
+    </b-row>
 
 
 
-  </div>-->
 
-  
-
-
-
+  </b-container>
 
 </section>
