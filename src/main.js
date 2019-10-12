@@ -10,7 +10,6 @@ import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import VueBootstrap from 'bootstrap-vue';
-import * as d3 from 'd3';
 
 
 import 'bootstrap';
