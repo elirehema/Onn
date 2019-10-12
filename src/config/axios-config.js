@@ -1,8 +1,8 @@
-import '../../node_modules/nprogress/nprogress.css'
+import '../../node_modules/nprogress/nprogress.css';
 import NProgress from 'nprogress';
 import axios from 'axios';
-import API_BASE from './http-config'
-import REMOTE_API_BASE from './http-config'
+import API_BASE from './http-config';
+import REMOTE_API_BASE from './http-config';
 
 const instance = axios.create({
     baseURL: REMOTE_API_BASE,
@@ -15,13 +15,13 @@ const instance = axios.create({
 // before a request is made start the nprogress
 instance.interceptors.request.use(config => {
     NProgress.start();
-    return config
+    return config;
 });
 
 // before a response is returned stop nprogress
 instance.interceptors.response.use(response => {
     NProgress.done();
-    return response
+    return response;
 });
 
-export default instance
+export default instance;
