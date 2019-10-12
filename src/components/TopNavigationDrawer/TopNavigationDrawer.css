@@ -1,7 +1,17 @@
-.top-navigation-drawer .subheading {
-  font-size: 14px; }
+.top-navigation-drawer v-app b-navbar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
 
-v-toolbar {
-  height: 128px; }
+.top-navigation-drawer b-navbar-brand {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
+.top-navigation-drawer b-navbar-brand img .d-inline-block {
+  height: 41px;
+}
 /*# sourceMappingURL=TopNavigationDrawer.css.map */

@@ -1,9 +1,24 @@
 .top-navigation-drawer {
-  .subheading{
-    font-size: 14px;
+  v-app {
+    b-navbar {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
   }
 
-}
-v-toolbar{
-  height: 128px;
+    b-navbar-brand {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+   
+
+    img{
+      .d-inline-block{
+      height: 41px;
+      }
+    }
+  
+  }
 }

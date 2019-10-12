@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "AAGA,KAAM;EACJ,OAAO,EAAE,KAAK;;AAEhB,wBAAyB;EACvB,MAAM,EAAE,CAAC;EACT,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,aAAa",
-"sources": ["UserLists.scss"],
-"names": [],
-"file": "UserLists.css"
+    "version": 3,
+    "mappings": "AAGA,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,KAAK;CACf;;AACD,AAAA,QAAQ,CAAC,eAAe,CAAC;EACvB,MAAM,EAAE,CAAC;EACT,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,aAAa;CACtB",
+    "sources": [
+        "UserLists.scss"
+    ],
+    "names": [],
+    "file": "UserLists.css"
 }

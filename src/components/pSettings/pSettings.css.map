@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "",
-"sources": [],
-"names": [],
-"file": "pSettings.css"
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "pSettings.scss"
+    ],
+    "names": [],
+    "file": "pSettings.css"
 }

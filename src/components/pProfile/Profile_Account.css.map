@@ -1,7 +1,9 @@
 {
-"version": 3,
-"mappings": "",
-"sources": [],
-"names": [],
-"file": "Profile_Account.css"
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "Profile_Account.scss"
+    ],
+    "names": [],
+    "file": "Profile_Account.css"
 }

@@ -1,11 +1,10 @@
-<section class="top-navigation-drawer" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform"
-         xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<section class="top-navigation-drawer" >
     <v-app>
-        <v-app-bar app>
+       <!-- <v-app-bar app>
             <v-toolbar flat>
                 <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-                <v-toolbar-title>Que</v-toolbar-title>
+                <v-toolbar-title v-on:click="nativateToHere('index')">Que</v-toolbar-title>
                 <v-spacer></v-spacer>
 
                 <v-toolbar-items>
@@ -23,7 +22,48 @@
                     </v-btn>
                 </template>
             </v-toolbar>
-        </v-app-bar>
+        </v-app-bar>-->
+        <!--
+            - Type control the text color
+            - Variant Control the navbar color
+        -->
+        <b-navbar toggleable="lg" type="light" variant="light">
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                <b-navbar-brand href="#">
+                        <img src="@/assets/img/icon.png" style="height: 40px;"  class="d-inline-block align-top" alt="Kitten">
+                        LadyBird
+                      </b-navbar-brand>
+        
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        
+            <b-collapse id="nav-collapse" is-nav>
+              <b-navbar-nav>
+                <b-nav-item href="#">Home</b-nav-item>
+                <b-nav-item href="#" >Catalog</b-nav-item>
+                <b-nav-item-dropdown  text="Shop" right>
+                    <b-dropdown-item>Shop One</b-dropdown-item>
+                    <b-dropdown-item>Shop Two</b-dropdown-item>
+                </b-nav-item-dropdown>
+                <b-nav-item-dropdown  text="Pages" left>
+                        <b-dropdown-item>Page One</b-dropdown-item>
+                        <b-dropdown-item>Page Two</b-dropdown-item>
+                </b-nav-item-dropdown>
+              </b-navbar-nav>
+        
+              <!-- Right aligned nav items -->
+              <b-navbar-nav class="ml-auto">
+                <b-nav-form>
+                  <b-form-input size="md" class="mr-md-6" placeholder="Search"></b-form-input>
+                  <v-icon>mdi-magnify</v-icon>
+
+                <v-icon>mdi-cart</v-icon>
+                <v-icon>mdi-dresser</v-icon>
+                </b-nav-form>
+        
+                
+              </b-navbar-nav>
+            </b-collapse>
+          </b-navbar>
 
         <v-navigation-drawer
                 v-model="drawer"

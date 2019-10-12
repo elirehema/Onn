@@ -1,9 +1,10 @@
-small {
-  display: block; }
+.home-page {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-#lateral .v-btn--example {
-  bottom: 0;
-  position: absolute;
-  margin: 0 0 16px 16px; }
-
+.home-page b-card {
+  margin: 1%;
+}
 /*# sourceMappingURL=HomePage.css.map */
