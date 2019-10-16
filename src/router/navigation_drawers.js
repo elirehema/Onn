@@ -1,16 +1,15 @@
-import TopNavigation from '@/components/TopNavigationDrawer/index';
-import HomePage from '@/pages/HomePage/index';
+import TopNavigation from '@/components/TopNavigationDrawer/index'
+import HomePage from '@/pages/HomePage/index'
 import ProductsList from '../pages/Products/ProductList';
 import ViewUserComponent from "../pages/ViewUserPage/index";
 import CreateUserComponent from '../components/CreateUser.vue';
 import EditUser from '@/components/EditUser';
 import CreateItem from '../components/CreateItem.vue';
 import AddUserComponent from "../pages/AddUser/index";
-import ChatRoom from '@/pages/ChatRoom/ChatRoomPage/index';
-import ChatMessages from '@/pages/ChatRoom/MessagesPage/index';
-import UserProfileComponent from '@/pages/UserProfile/index';
-import UploadsComponent from '@/components/pUploads/index';
-import VueChartsComponents from '../pages/VueCharts/index';
+import ChatRoom from '@/pages/ChatRoom/ChatRoomPage/index'
+import ChatMessages from '@/pages/ChatRoom/MessagesPage/index'
+import UserProfileComponent from '@/pages/UserProfile/index'
+import UploadsComponent from '@/components/pUploads/index'
 
 
 export default {
@@ -37,14 +36,6 @@ export default {
             path: '/products',
             name: 'ProductList',
             component: ProductsList,
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            path: '/charts',
-            name: 'Charts',
-            component: VueChartsComponents,
             meta: {
                 requiresAuth: true
             }

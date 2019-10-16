@@ -23,9 +23,9 @@ export default {
           route: 'index'
         },
         {
-          text: 'Charts',
+          text: 'Starred',
           icon: 'mdi-star',
-          route: 'charts'
+          route: 'index'
         },
         {
           text: 'Recent',
@@ -83,7 +83,7 @@ export default {
       background: false,
 
 
-    };
+    }
   },
   created() {},
   computed: {},
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     nativateToHere(id) {
-      this.$router.push('/' + id);
+      this.$router.push('/' + id)
     },
     logout() {
       this.$store.dispatch('logout').then().catch(err => console.log(err.message))
