@@ -10,6 +10,8 @@ import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import VueBootstrap from 'bootstrap-vue';
+import nv from 'nvd3';
+import * as d3 from 'd3';
 
 
 import 'bootstrap';
@@ -35,6 +37,8 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(VueBootstrap);
 Vue.use(vuetify);
+Vue.use(nv);
+Vue.use(d3);
 
 
 new Vue({
