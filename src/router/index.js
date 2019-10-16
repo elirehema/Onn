@@ -36,13 +36,13 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (localStorage.getItem('qAccessToken') == null){
-            next('/')
+            next('/');
         } else {
-            next()
+            next();
         }
 
     }else {
-        next()
+        next();
     }
 
 });

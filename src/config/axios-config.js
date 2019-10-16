@@ -1,7 +1,7 @@
 import '../../node_modules/nprogress/nprogress.css';
 import NProgress from 'nprogress';
 import axios from 'axios';
-import API_BASE from './http-config';
+//import API_BASE from './http-config';
 import REMOTE_API_BASE from './http-config';
 
 const instance = axios.create({
