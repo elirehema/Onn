@@ -1,6 +1,4 @@
 .user-profile div.my-tabs [role="tab"] {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
+  justify-content: flex-start; }
+
 /*# sourceMappingURL=UserProfile.css.map */

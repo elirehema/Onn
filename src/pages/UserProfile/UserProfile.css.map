@@ -1,9 +1,7 @@
 {
-    "version": 3,
-    "mappings": "AAAA,AAEI,aAFS,CAET,GAAG,AAAA,QAAQ,EAAC,AAAA,IAAC,CAAK,KAAK,AAAV,EAAY;EACrB,eAAe,EAAE,UAAU;CAC5B",
-    "sources": [
-        "UserProfile.scss"
-    ],
-    "names": [],
-    "file": "UserProfile.css"
+"version": 3,
+"mappings": "AAEI,sCAAyB;EACrB,eAAe,EAAE,UAAU",
+"sources": ["UserProfile.scss"],
+"names": [],
+"file": "UserProfile.css"
 }
