@@ -1,9 +1,7 @@
 {
-    "version": 3,
-    "mappings": "AAAA,AAEI,sBAFkB,CACpB,KAAK,CACH,QAAQ,CAAC;EACP,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,MAAM;CACnB;;AAPL,AAUI,sBAVkB,CAUlB,cAAc,CAAC;EACb,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;CASnB;;AAtBH,AAiBM,sBAjBgB,CAUlB,cAAc,CAMd,GAAG,CACD,eAAe,CAAA;EACf,MAAM,EAAE,IAAI;CACX",
-    "sources": [
-        "TopNavigationDrawer.scss"
-    ],
-    "names": [],
-    "file": "TopNavigationDrawer.css"
+"version": 3,
+"mappings": "AAEI,qCAAS;EACP,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,MAAM;AAIpB,qCAAe;EACb,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;EAIhB,yDAAe;IACf,MAAM,EAAE,IAAI",
+"sources": ["TopNavigationDrawer.scss"],
+"names": [],
+"file": "TopNavigationDrawer.css"
 }
