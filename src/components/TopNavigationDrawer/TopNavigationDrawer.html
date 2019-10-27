@@ -2,7 +2,7 @@
     <v-app>
         <v-app-bar app>
             <v-toolbar flat>
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-nav-icon id="nav_icon" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
                 <v-toolbar-title id="v-toolbar-title" v-on:click="nativateToHere('index')">{{ titles.title }}</v-toolbar-title>
                 <v-spacer></v-spacer>
@@ -21,6 +21,7 @@
                         <template v-slot:activator="{ on }">
                           <v-btn
                             icon
+                            id="fav_icon"
                             v-on="on"
                           >
                           <v-icon>mdi-dots-vertical</v-icon>
@@ -35,7 +36,7 @@
                                 <v-icon v-text="item.icon"></v-icon>
                             <v-list-item-title>{{ item.title }}</v-list-item-title>
                           </v-list-item>
-                          <v-list-item icon v-if="accToken != null" v-on:click="logout()">
+                          <v-list-item  icon v-if="accToken != null" v-on:click="logout()">
                               <v-icon>mdi-logout</v-icon>
                                 <v-list-item-title>Logout</v-list-item-title>
                           </v-list-item>

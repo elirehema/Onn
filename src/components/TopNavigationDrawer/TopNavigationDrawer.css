@@ -14,4 +14,9 @@
 .top-navigation-drawer b-navbar-brand img .d-inline-block {
   height: 41px;
 }
+
+#v-toolbar-title, #nav_icon, #fav_icon {
+  padding: 0;
+  color: red;
+}
 /*# sourceMappingURL=TopNavigationDrawer.css.map */
