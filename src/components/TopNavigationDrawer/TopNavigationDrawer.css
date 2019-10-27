@@ -2,12 +2,16 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  text-align: center; }
+  text-align: center;
+}
+
 .top-navigation-drawer b-navbar-brand {
   margin: 0;
   padding: 0;
-  list-style: none; }
-  .top-navigation-drawer b-navbar-brand img .d-inline-block {
-    height: 41px; }
+  list-style: none;
+}
 
+.top-navigation-drawer b-navbar-brand img .d-inline-block {
+  height: 41px;
+}
 /*# sourceMappingURL=TopNavigationDrawer.css.map */

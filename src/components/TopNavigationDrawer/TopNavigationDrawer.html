@@ -1,119 +1,124 @@
-<section class="top-navigation-drawer" >
+<section class="top-navigation-drawer">
     <v-app>
         <v-app-bar app>
             <v-toolbar flat>
                 <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-                <v-toolbar-title v-on:click="nativateToHere('index')">Que</v-toolbar-title>
+                <v-toolbar-title id="v-toolbar-title" v-on:click="nativateToHere('index')">{{ titles.title }}</v-toolbar-title>
                 <v-spacer></v-spacer>
 
                 <v-toolbar-items>
-                    <v-btn v-on:click="nativateToHere('index')" text>
+                    <!--<v-btn v-on:click="nativateToHere('index')" text>
                         <v-icon>mdi-home</v-icon>
                     </v-btn>
-                    <v-btn  v-on:click="nativateToHere('products')" text>
+                    <v-btn v-on:click="nativateToHere('products')" text>
                         <v-icon>mdi-playlist-minus</v-icon>
-                    </v-btn>
+                    </v-btn>-->
                 </v-toolbar-items>
 
-                <template >
-                    <v-btn icon v-if="accToken != null"  v-on:click="logout()">
-                        <v-icon>mdi-export</v-icon>
-                    </v-btn>
+                <template>
+                    <v-menu offset-y>
+                        <template v-slot:activator="{ on }">
+                          <v-btn
+                            icon
+                            v-on="on"
+                          >
+                          <v-icon>mdi-dots-vertical</v-icon>
+                          </v-btn>
+                        </template>
+                        <v-list>
+                          <v-list-item
+                            v-for="(item, index) in  menu_items"
+                            :key="index"
+                            v-on:click="nativateToHere(item.location)"
+                          >
+                                <v-icon v-text="item.icon"></v-icon>
+                            <v-list-item-title>{{ item.title }}</v-list-item-title>
+                          </v-list-item>
+                          <v-list-item icon v-if="accToken != null" v-on:click="logout()">
+                              <v-icon>mdi-logout</v-icon>
+                                <v-list-item-title>Logout</v-list-item-title>
+                          </v-list-item>
+                        </v-list>
+                      </v-menu>
+                    
                 </template>
             </v-toolbar>
         </v-app-bar>
-        <!--
-            - Type control the text color
-            - Variant Control the navbar color
-        -->
-       <!---<b-navbar toggleable="lg" type="light" variant="light">
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                <b-navbar-brand href="#">
-                        <img src="@/assets/img/icon.png" style="height: 40px;"  class="d-inline-block align-top" alt="Kitten">
-                        LadyBird
-                      </b-navbar-brand>
-        
-            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        
-            <b-collapse id="nav-collapse" is-nav>
-              <b-navbar-nav>
-                <b-nav-item href="#">Home</b-nav-item>
-                <b-nav-item href="#" >Catalog</b-nav-item>
-                <b-nav-item-dropdown  text="Shop" right>
-                    <b-dropdown-item>Shop One</b-dropdown-item>
-                    <b-dropdown-item>Shop Two</b-dropdown-item>
-                </b-nav-item-dropdown>
-                <b-nav-item-dropdown  text="Pages" left>
-                        <b-dropdown-item>Page One</b-dropdown-item>
-                        <b-dropdown-item>Page Two</b-dropdown-item>
-                </b-nav-item-dropdown>
-              </b-navbar-nav>
-        
-              !-- Right aligned nav items --
-              <b-navbar-nav class="ml-auto">
-                <b-nav-form>
-                  <b-form-input size="md" class="mr-md-6" placeholder="Search"></b-form-input>
-                  <v-icon>mdi-magnify</v-icon>
 
-                <v-icon>mdi-cart</v-icon>
-                <v-icon>mdi-dresser</v-icon>
-                </b-nav-form>
-        
-                
-              </b-navbar-nav>
-            </b-collapse>
-          </b-navbar>-->
 
-        <v-navigation-drawer
-                v-model="drawer"
-                absolute
-                temporary>
+        <!--NAVIGATION DRAWER-->
+        <v-navigation-drawer id="app-drawer" v-model="drawer" absolute temporary app floating persistent width="260">
             <v-list>
-                <router-link :to="{ name: 'Profile'}" >
-                <v-list-item>
-                    <v-list-item-avatar>
-                        <v-img src="https://avatars2.githubusercontent.com/u/29277048?s=460&v=4"></v-img>
-                    </v-list-item-avatar>
-                </v-list-item>
-                </router-link>
 
-                <v-list-item link>
+                <v-list-item>
+                    <router-link :to="{ name: 'Profile'}">
+                        <v-list-item-avatar>
+                            <v-img src="https://avatars2.githubusercontent.com/u/29277048?s=460&v=4"></v-img>
+                        </v-list-item-avatar>
+                    </router-link>
                     <v-list-item-content>
-                        <v-list-item-title class="title">Elirehema Paul</v-list-item-title>
-                        <v-list-item-subtitle>eli@singo.africa</v-list-item-subtitle>
+                        <v-list-item-title class="title">Elirehema</v-list-item-title>
+                        <v-list-item-subtitle>Founder of ...</v-list-item-subtitle>
                     </v-list-item-content>
 
                     <v-list-item-action>
-                        <v-icon>mdi-menu-down</v-icon>
-                    </v-list-item-action>
+                            <v-btn
+                              :class="fav ? 'red--text' : ''"
+                              icon
+                              @click="fav = !fav"
+                            >
+                              <v-icon>mdi-star-half</v-icon>
+                              
+                            </v-btn>
+                          </v-list-item-action>
                 </v-list-item>
+
             </v-list>
             <v-divider></v-divider>
-            <v-list
-                    nav
-                    dense>
+            <v-list nav dense shaped>
                 <v-list-item-group v-model="item" color="primary">
-                    <v-list-item
-                            v-for="(item, i) in items"
-                            :key="`${i}-${item.route}`"
-                            v-on:click="nativateToHere(item.route)">
+                    <v-list-item>
+                        <v-list-item-content>
+
+                            <v-list-item-subtitle class="title">Mode</v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-action>
+                            <v-switch :value="true" @change="toggle($event !== null)"></v-switch>
+                        </v-list-item-action>
+
+                    </v-list-item>
+                    <v-list-item v-for="(item, i) in items" :key="`${i}-${item.route}`"
+                        v-on:click="nativateToHere(item.route)">
                         <v-list-item-icon>
                             <v-icon v-text="item.icon"></v-icon>
                         </v-list-item-icon>&nbsp;&nbsp;
 
                         <v-list-item-content>
                             <v-list-item-title v-text="item.text"></v-list-item-title>
+                            <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
+
                         </v-list-item-content>
                     </v-list-item>
-                    <v-list-item>
-                          <v-switch
-                                    :value="true"
-                                    @change="toggle($event !== null)"
-                                    ></v-switch>
+                    <v-divider></v-divider>
+                    <v-list-item-group v-model="item" color="primary">
+                        <v-list-item v-for="(folder, i) in folders" :key="`${i}-${folder.icon}`"
+                            v-on:click="nativateToHere(folder.route)">
+                            <v-list-item-icon>
+                                <v-icon>mdi-folder-outline</v-icon>
+                            </v-list-item-icon>&nbsp;&nbsp;
+
+                            <v-list-item-content>
+                                <v-list-item-title v-text="folder.text"></v-list-item-title>
+                            </v-list-item-content>
                         </v-list-item>
+
+                    </v-list-item-group>
+
                 </v-list-item-group>
             </v-list>
+
+
         </v-navigation-drawer>
 
         <v-content>
@@ -123,6 +128,6 @@
                 <router-view></router-view>
             </v-container>
         </v-content>
-       
+
     </v-app>
 </section>

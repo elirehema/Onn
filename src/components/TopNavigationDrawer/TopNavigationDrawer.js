@@ -7,46 +7,64 @@ export default {
       drawer: false,
       item: 0,
       accToken: '',
+      titles:{
+        title: 'Room15'
+      },
+      menu_items: [
+        { title: 'Home', location:'index', icon: 'mdi-home'},
+        { title: 'Profile', location: 'profile', icon: 'mdi-account-circle'},
+        { title: 'Notification\'s', location:'#' ,icon: 'mdi-bell-ring'},
+        { title: 'Setting and Privacy Policy', location: '#', icon: 'mdi-settings' },
+      ],
       items: [{
-          text: 'My Files',
-          icon: 'mdi-folder',
-          route: 'index'
-        },
-        {
-          text: 'Messages',
-          icon: 'mdi-chat',
-          route: 'chat'
+          text: 'Inbox',
+          icon: 'mdi-inbox',
+          route: 'index',
+          subtitle: 'Lorem ipsum dolor sit de amet..'
         },
         {
           text: 'Shared with me',
-          icon: 'mdi-account-multiple',
-          route: 'index'
+          icon: 'mdi-folder-account',
+          route: 'index',
+          subtitle: 'Lorem ipsum dolor sit de amet..'
         },
         {
-          text: 'Charts',
+          text: 'Starred',
           icon: 'mdi-star',
-          route: 'charts'
+          route: 'chat',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
         {
-          text: 'Recent',
-          icon: 'mdi-history',
-          route: 'index'
+          text: 'Trash',
+          icon: 'mdi-delete',
+          route: 'index',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Spam',
+          icon: 'mdi-alert-octagon',
+          route: 'charts',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Draft',
+          icon: 'mdi-email-open',
+          route: 'index',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
         {
           text: 'Offline',
           icon: 'mdi-check-circle',
-          route: 'index'
+          route: 'index',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
         {
           text: 'Uploads',
           icon: 'mdi-upload',
-          route: 'uploads'
+          route: 'uploads',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
-        {
-          text: 'Backups',
-          icon: 'mdi-cloud-upload',
-          route: 'index'
-        },
+       
       ],
       icons: [{
           icon: 'mdi-facebook',
@@ -81,6 +99,44 @@ export default {
       miniVariant: false,
       expandOnHover: true,
       background: false,
+      folders:[
+        {
+          text: 'Backups',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Pine Elemetary',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Taxes',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Vacation',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Mortgage',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
+          text: 'Freelance',
+          icon: 'mdi-cloud-upload',
+          route: '#',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+      ]
 
 
     };
