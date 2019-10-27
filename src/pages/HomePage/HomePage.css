@@ -1,8 +1,10 @@
 .home-page {
   margin: 0;
   padding: 0;
-  list-style: none; }
-  .home-page b-card {
-    margin: 1%; }
+  list-style: none;
+}
 
+.home-page b-card {
+  margin: 1%;
+}
 /*# sourceMappingURL=HomePage.css.map */
