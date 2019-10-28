@@ -1,4 +1,4 @@
-import axios from '../config/axios-config'
+import axios from '../config/axios-config';
 
 import {
     ADD_PRODUCT,
@@ -48,19 +48,19 @@ export const productActions = {
         commit(ADD_PRODUCT);
         axios.post(`/products`, payload).then(response => {
             commit(ADD_PRODUCT_SUCCESS, response.data)
-        })
+        });
     },
     updateProduct({commit}, payload) {
         commit(UPDATE_PRODUCT);
         axios.put(`/products/${payload._id}`, payload).then(response => {
             commit(UPDATE_PRODUCT_SUCCESS, response.data)
-        })
+        });
     },
     deleteProduct({commit}, payload) {
         commit(DELETE_PRODUCT);
         axios.delete(`/products/${payload}`, payload).then(response => {
             commit(DELETE_PRODUCT_SUCCESS, response.data)
-        })
+        });
     }
 };
 
@@ -69,7 +69,7 @@ export const manufacturerActions = {
         commit(ALL_MANUFACTURERS);
         axios.get(`/manufacturers`).then(response => {
             commit(ALL_MANUFACTURERS_SUCCESS, response.data)
-        })
+        });
     }
 };
 export const userActions = {
@@ -78,14 +78,14 @@ export const userActions = {
         axios.get(`/users`).then(response => {
 
             commit(ALL_USERS_SUCCESS, response.data.data)
-        })
+        });
     },
 
     deleteUser({commit}, payload) {
         commit(DELETE_USER);
         axios.delete(`/users/${payload}`).then(response => {
             commit(DELETE_USER_SUCCESS, response.data);
-        })
+        });
     },
     currentProfile({commit}, payload){
         commit(USER_PROFILE);
@@ -107,13 +107,13 @@ export const userActions = {
         .catch(err => {
             commit(UPDATE_PROFILE_FAILURE, err);
             console.log(err.message);
-        })
+        });
     },
     addUser({commit}, payload) {
         commit(ADD_USER);
         axios.post(`/users`, payload).then(response => {
             commit(ADD_USER_SUCCESS, response.data)
-        })
+        });
     },
 
 };
@@ -127,7 +127,7 @@ export const messsageAction = {
             .catch(err => {
                 commit(GET_MESSAGE_FAILURE, err);
                 console.log(err.message);
-            })
+            });
     },
     sendMessage({commit}, payload) {
         commit(SEND_MESSAGE);
@@ -138,7 +138,7 @@ export const messsageAction = {
             .catch(err => {
                 commit(SEND_MESSAGE_FAILURE, err);
                 console.log(err.message);
-            })
+            });
     }
 };
 
@@ -153,16 +153,16 @@ export const registrationActions = {
                     localStorage.setItem('token', token);
                     axios.defaults.headers.common['Authorization'] = token;
                     commit(REGISTRATION_SUCCESS, token, user);
-                    resolve(resp)
+                    resolve(resp);
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR, err);
                     localStorage.removeItem('token');
                     localStorage.removeItem('uuid');
                     localStorage.removeItem('uumail');
-                    reject(err)
-                })
-        })
+                    reject(err);
+                });
+        });
     }
 
 };
@@ -199,13 +199,13 @@ export const loginActions = {
             localStorage.removeItem('username');
             delete axios.defaults.headers.common['Authorization'];
             commit(LOGIN_SUCCESS);
-            resolve()
+            resolve();
         })
             .catch(err => {
                 commit(LOGOUT_FAILED);
                 localStorage.removeItem('qAccessToken');
-                reject(err)
-            })
+                reject(err);
+            });
     }
 };
  /* eslint-enable */

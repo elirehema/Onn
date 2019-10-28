@@ -1,21 +1,67 @@
 <section class="home-page" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <v-app>
-  <b-container fluid>
-    <b-row>
-      <b-card v-for="item in items" title="Card Title" img-src="https://picsum.photos/600/300/?image=25" img-alt="Image"
-        img-top tag="article" style="max-width: 20rem;" class="mb-2">
-        <b-card-text>{{item.email}}
-        </b-card-text>
-        <b-card-text></b-card-text>
-        <b-card-text>$500</b-card-text>
-      </b-card>
+ <!-- <div
+  flat
+      tile
+  class="d-md-inline-flex mb-6 d-flex-sm-column justify-center">
+  
+</div>-->
 
-    </b-row>
+<v-container class="mylist">
+  <v-layout row wrap>
+    <v-flex xs12 sm6 md4  v-for="item in items" :key="item._id">
+        <v-card
+        min-width="350"
+        max-width="450"
+        class="ma-1 mx-auto mb-6 mr-1">
+          <v-card-actions>
+          <v-list-item class="grow">
+            <v-list-item-content >
+              <v-list-item-title>{{item.username}}</v-list-item-title>
+            </v-list-item-content>
+             
+      
+            <v-list-item-content>
+              <v-list-item-subtitle>25 mins ago</v-list-item-subtitle>
+            </v-list-item-content>
+      
+            <v-row
+              align="center"
+              justify="end"
+            >
+              <v-icon class="mr-1">mdi-star-outline</v-icon>
+              <v-icon class=" mr-1">mdi-delete-outline</v-icon>
+              <v-icon class="mr-1">mdi-dots-vertical</v-icon>
+               <v-list-item-avatar color="grey darken-3">
+              <v-img
+                class="elevation-6"
+                :src="item.image"
+              ></v-img>
+            </v-list-item-avatar>
+            </v-row>
+          </v-list-item>
+        </v-card-actions>
+       
+      
+        <v-card-text class="headline font-weight-bold">
+          {{item.fullname}} {{item.country}}  {{item.address}}  {{item.country}}
+        </v-card-text>
+      <v-card-title>
+          <v-icon
+            large
+            left
+          >
+            mdi-attachmen
+          </v-icon>
+          <span class="small font-weight-light">I'll be in your neighbourhood doing some errands</span>
+        </v-card-title>
+        
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
+  
 
-
-
-
-  </b-container>
 </v-app>
 
 </section>

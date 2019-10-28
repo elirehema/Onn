@@ -5,15 +5,15 @@ export default {
   data () {
     return {
 
-    }
+    };
   },
   created: function() {
-    this.$store.dispatch('allUsers')
+    this.$store.dispatch('allUsers');
 
   },
   computed: {
     users(){
-      return this.$store.getters.allUsers
+      return this.$store.getters.allUsers;
     }
 
   },
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     redirectMe: function(id){
-      this.$router.push('/chats/'+id)
+      this.$router.push('/chats/'+id);
     }
 
   }

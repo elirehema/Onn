@@ -44,7 +44,7 @@ export default {
     };
   },
   created: function() {
-      this.$store.dispatch('allUsers')
+      this.$store.dispatch('allUsers');
 
   },
 

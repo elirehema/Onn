@@ -25,8 +25,12 @@
     }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+html, body{
+    font-family: 'Work Sans', sans-serif;
+}
 #app{
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 </style>
