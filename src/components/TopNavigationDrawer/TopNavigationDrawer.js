@@ -7,6 +7,7 @@ export default {
       drawer: false,
       item: 0,
       accToken: '',
+      flat: true,
       titles:{
         title: 'Room15'
       },
