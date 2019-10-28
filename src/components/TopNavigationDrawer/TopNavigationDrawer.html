@@ -1,7 +1,7 @@
 <section class="top-navigation-drawer">
     <v-app>
-        <v-app-bar app>
-            <v-toolbar flat>
+        <v-app-bar app :flat="flat">
+            <v-toolbar :flat="flat">
                 <v-app-bar-nav-icon id="nav_icon" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
                 <v-toolbar-title id="v-toolbar-title" v-on:click="nativateToHere('index')">{{ titles.title }}</v-toolbar-title>
