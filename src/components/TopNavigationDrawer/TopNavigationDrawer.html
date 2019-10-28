@@ -49,7 +49,7 @@
 
 
         <!--NAVIGATION DRAWER-->
-        <v-navigation-drawer id="app-drawer" v-model="drawer" absolute temporary app floating persistent width="260">
+        <v-navigation-drawer id="app-drawer" expand-on-hover  v-model="drawer" absolute temporary app floating persistent width="260">
             <v-list>
 
                 <v-list-item>
@@ -65,9 +65,7 @@
 
                     <v-list-item-action>
                             <v-btn
-                              :class="fav ? 'red--text' : ''"
                               icon
-                              @click="fav = !fav"
                             >
                               <v-icon>mdi-star-half</v-icon>
                               

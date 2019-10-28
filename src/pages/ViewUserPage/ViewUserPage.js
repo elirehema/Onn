@@ -5,13 +5,13 @@ export default {
   data () {
     return {
 
-    }
+    };
   },
   created () {
   },
   computed: {
     user () {
-      return this.$store.getters.userById(this.$route.params['id'])
+      return this.$store.getters.userById(this.$route.params['id']);
     }
 
   },
@@ -21,9 +21,9 @@ export default {
   },
   methods: {
     deleteThisUser(uid){
-      this.$store.dispatch('deleteUser',uid)
-      this.$router.push('/home')
+      this.$store.dispatch('deleteUser',uid);
+      this.$router.push('/home');
     }
 
   }
-}
+};

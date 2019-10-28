@@ -4,7 +4,8 @@
   list-style: none;
 }
 
-.home-page b-card {
+.home-page v-card {
   margin: 1%;
+  margin-bottom: 200px;
 }
 /*# sourceMappingURL=HomePage.css.map */
