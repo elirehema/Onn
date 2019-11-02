@@ -18,12 +18,12 @@ export default {
         emailMatch: () => ('The email and password you entered don\'t match'),
       },
 
-    }
+    };
   },
   computed: {},
   mounted() {
-    if (localStorage.qAccessToken) {
-      this.$router.push('/home')
+    if (!this.$store.isAuthenticated) {
+      this.$router.push('/home');
     }
   },
   watch: {
@@ -39,15 +39,15 @@ export default {
       };
       this.$store.dispatch('login', data).then(response => {
         if (response != null){
-          this.$router.push('/home')
+          this.$router.push('/home');
         }
       }, error => {
-        console.log(error.message)
+        console.log(error.message);
       });
 
     },
     nativateToHere(id) {
-      this.$router.push('/' + id)
+      this.$router.push('/' + id);
     },
   }
 }
