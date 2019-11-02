@@ -1,1 +1,16 @@
-/* No CSS *//*# sourceMappingURL=PageNotFound.css.map */
+.page-not-found {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/img/page_not_found.png");
+  background-color: #f1ecec;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-not-found .app #p {
+  color: black;
+}
+/*# sourceMappingURL=PageNotFound.css.map */

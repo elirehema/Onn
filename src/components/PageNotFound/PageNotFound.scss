@@ -1,3 +1,31 @@
+// src/sass/variables.scss
+
+// Globals
+$border-radius-root: 6px;
+$font-size-root: 14px;
+
+// Variables must come before the import
+$btn-letter-spacing: 0;
+$btn-font-weight: 400;
+$list-item-title-font-size: 0.929rem;
+$list-item-dense-title-font-size: 0.929rem;
+$list-item-dense-title-font-weight: initial;
+
 .page-not-found {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/img/page_not_found.png");
+    background-color: #f1ecec;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .app{
+        #p{
+            color: black;
+        }
+    }
 
 }
