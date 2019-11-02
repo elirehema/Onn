@@ -6,10 +6,10 @@ export default {
     return {
       id: "",
 
-    }
+    };
   },
   created() {
-    this.$store.dispatch('currentProfile', localStorage.uuid)
+    this.$store.dispatch('currentProfile', localStorage.uuid);
   },
   computed: {
     username: {

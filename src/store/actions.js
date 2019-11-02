@@ -30,7 +30,7 @@ import {
     GET_MESSAGE,
     GET_MESSAGE_SUCCESS,
     GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE, LOGOUT_FAILED, USER_PROFILE, USER_PROFILE_SUCCESS, USER_PROFILE_FAILURE, UPDATE_PROFILE, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE
-} from './mutation-types'
+} from './mutation-types';
 
 export const productActions = {
     allProducts({commit}) {
@@ -42,24 +42,24 @@ export const productActions = {
     productById({commit}, payload) {
         commit(PRODUCT_BY_ID);
         axios.get(`/products/${payload}`).then(response =>
-            commit(PRODUCT_BY_ID_SUCCESS, response.data))
+            commit(PRODUCT_BY_ID_SUCCESS, response.data));
     },
     addProduct({commit}, payload) {
         commit(ADD_PRODUCT);
         axios.post(`/products`, payload).then(response => {
-            commit(ADD_PRODUCT_SUCCESS, response.data)
+            commit(ADD_PRODUCT_SUCCESS, response.data);
         });
     },
     updateProduct({commit}, payload) {
         commit(UPDATE_PRODUCT);
         axios.put(`/products/${payload._id}`, payload).then(response => {
-            commit(UPDATE_PRODUCT_SUCCESS, response.data)
+            commit(UPDATE_PRODUCT_SUCCESS, response.data);
         });
     },
     deleteProduct({commit}, payload) {
         commit(DELETE_PRODUCT);
         axios.delete(`/products/${payload}`, payload).then(response => {
-            commit(DELETE_PRODUCT_SUCCESS, response.data)
+            commit(DELETE_PRODUCT_SUCCESS, response.data);
         });
     }
 };
@@ -68,7 +68,7 @@ export const manufacturerActions = {
     allManufacturers({commit}) {
         commit(ALL_MANUFACTURERS);
         axios.get(`/manufacturers`).then(response => {
-            commit(ALL_MANUFACTURERS_SUCCESS, response.data)
+            commit(ALL_MANUFACTURERS_SUCCESS, response.data);
         });
     }
 };
@@ -77,7 +77,7 @@ export const userActions = {
         commit(ALL_USERS);
         axios.get(`/users`).then(response => {
 
-            commit(ALL_USERS_SUCCESS, response.data.data)
+            commit(ALL_USERS_SUCCESS, response.data.data);
         });
     },
 
@@ -92,6 +92,7 @@ export const userActions = {
         axios.get(`/users/${payload}`)
         .then(response => {
             commit(USER_PROFILE_SUCCESS, response.data.data);
+            console.log(response.data.data);
         })
         .catch(function (error) {
             commit(USER_PROFILE_FAILURE);

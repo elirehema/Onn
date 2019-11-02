@@ -154,7 +154,7 @@ export default {
       this.$router.push('/' + id);
     },
     logout() {
-      this.$store.dispatch('logout').then().catch(err => console.log(err.message))
+      this.$store.dispatch('logout').then().catch(err => console.log(err.message));
       localStorage.removeItem('qAccessToken');
       localStorage.removeItem('username');
       this.$router.push('/');
