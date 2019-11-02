@@ -13,16 +13,11 @@ $list-item-dense-title-font-weight: initial;
 
 .page-not-found {
     margin: auto;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../assets/img/page_not_found.png");
-    background-color: #f1ecec;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 50%;
 
     .app{
+        border: 0px solid transparent;
+        margin: auto;
         #p{
             color: black;
         }
