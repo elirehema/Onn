@@ -1,1 +1,14 @@
-/* No CSS *//*# sourceMappingURL=PageNotFound.css.map */
+.page-not-found {
+  margin: auto;
+  width: 50%;
+}
+
+.page-not-found .app {
+  border: 0px solid transparent;
+  margin: auto;
+}
+
+.page-not-found .app #p {
+  color: black;
+}
+/*# sourceMappingURL=PageNotFound.css.map */
