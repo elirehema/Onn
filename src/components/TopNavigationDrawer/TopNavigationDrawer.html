@@ -17,12 +17,13 @@
                 </v-toolbar-items>
 
                 <template>
-                    <v-menu offset-y>
+                    <v-menu transition="scroll-x-reverse-transition">
                         <template v-slot:activator="{ on }">
                           <v-btn
                             icon
                             id="fav_icon"
                             v-on="on"
+                            
                           >
                           <v-icon>mdi-dots-vertical</v-icon>
                           </v-btn>
