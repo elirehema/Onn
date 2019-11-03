@@ -92,7 +92,6 @@ export const userActions = {
         axios.get(`/users/${payload}`)
         .then(response => {
             commit(USER_PROFILE_SUCCESS, response.data.data);
-            console.log(response.data.data);
         })
         .catch(function (error) {
             commit(USER_PROFILE_FAILURE);
@@ -182,16 +181,16 @@ export const loginActions = {
                         localStorage.setItem('uuid', user.id );
                         localStorage.setItem('uumail', user.email );
                         commit(LOGIN_SUCCESS, token, user);
-                        resolve(resp)
+                        resolve(resp);
                     }
 
                 })
                 .catch(err => {
                     commit(LOGIN_ERROR);
                     localStorage.removeItem('qAccessToken');
-                    reject(err)
-                })
-        })
+                    reject(err);
+                });
+        });
     },
     logout({commit}) {
         return new Promise((resolve, reject) => {

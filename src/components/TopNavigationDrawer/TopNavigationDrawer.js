@@ -102,6 +102,12 @@ export default {
       background: false,
       folders:[
         {
+          text: 'Products',
+          icon: 'mdi-factory',
+          route: 'products',
+          subtitle: 'Lorem ipsum dolor sit de amet ...'
+        },
+        {
           text: 'Backups',
           icon: 'mdi-cloud-upload',
           route: '#',

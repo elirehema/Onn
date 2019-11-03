@@ -15,7 +15,7 @@ Vue.use(Router);
  * the `history.pushState` API to achieve URL navigation without 
  * page reload**/
 const router = new Router({
-    mode: 'history',
+    mode: 'hash',
     routes: [
         {
             path: '*',
