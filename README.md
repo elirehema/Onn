@@ -7,7 +7,6 @@ This project is hosted in:
 Host Name and Link | UsernameEmail | Password
 ------------------ | ------------- | --------------
 [GitHub Pages](https://elirehema.github.io/Onn/#/home) |  demomail@gmail.com | pass12345678
-[Heroku Cloud](https://infoseeker.herokuapp.com) |  demomail@gmail.com | pass12345678
   
 
 ## Project setup 
