@@ -11,6 +11,13 @@ export default {
       titles:{
         title: 'Room15'
       },
+      footer_icons: [
+        {data:'mdi-facebook', color:'indigo', link:'https://www.facebook.com/pelirehema'},
+        {data:'mdi-twitter',color:'blue', link:'https://twitter.com/e_paul_'},
+        {data:'mdi-google-plus',color:'red',link: 'https://twitter.com/'},
+        {data:'mdi-linkedin', color:'indigo', link:'https://www.linkedin.com/in/elirehema-paul-3755b4124/'},
+        {data:'mdi-instagram',color:'magenta', link: 'http://instagram.com/'},
+      ],
       menu_items: [
         { title: 'Home', location:'index', icon: 'mdi-home'},
         { title: 'Profile', location: 'profile', icon: 'mdi-account-circle'},
@@ -143,7 +150,8 @@ export default {
           route: '#',
           subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
-      ]
+      ],
+      
 
 
     };
@@ -174,4 +182,4 @@ export default {
     }
 
   }
-}
+};
