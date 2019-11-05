@@ -19,7 +19,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-
+Vue.config.performance = true;
 Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a');
