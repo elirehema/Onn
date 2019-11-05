@@ -1,0 +1,19 @@
+
+<section class="p-shadow-list">
+  
+    <div :class="$style.wrap">
+      <div
+        :class="$style['scroll-container']"
+        :style="{ width, height }"
+        ref="scrollContainer"
+        @scroll.passive="toggleShadow"
+      >
+        <slot/>
+        <span :class="[$style['shadow-top'], shadow.top && $style['is-active']]"/>
+        <span :class="[$style['shadow-right'], shadow.right && $style['is-active']]"/>
+        <span :class="[$style['shadow-bottom'], shadow.bottom && $style['is-active']]"/>
+        <span :class="[$style['shadow-left'], shadow.left && $style['is-active']]"/>
+      </div>
+    </div>
+</section>
+

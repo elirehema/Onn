@@ -1,0 +1,61 @@
+.wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scroll-container {
+    overflow: auto;
+  }
+  
+  .shadow-top,
+  .shadow-right,
+  .shadow-bottom,
+  .shadow-left {
+    position: absolute;
+    border-radius: 6em;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  
+  .shadow-top,
+  .shadow-bottom {
+    right: 0;
+    left: 0;
+    height: 1em;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-image: linear-gradient(rgba(#555, 0.1) 0%, rgba(#FFF, 0) 100%);
+  }
+  
+  .shadow-top {
+    top: 0;
+  }
+  
+  .shadow-bottom {
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+  
+  .shadow-right,
+  .shadow-left {
+    top: 0;
+    bottom: 0;
+    width: 1em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-image: linear-gradient(90deg, rgba(#555, 0.1) 0%, rgba(#FFF, 0) 100%);
+  }
+  
+  .shadow-right {
+    right: 0;
+    transform: rotate(180deg);
+  }
+  
+  .shadow-left {
+    left: 0;
+  }
+  
+  .is-active {
+    opacity: 1;
+  }
