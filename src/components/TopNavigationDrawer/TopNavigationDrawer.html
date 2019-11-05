@@ -1,56 +1,63 @@
 <section class="top-navigation-drawer">
     <v-app>
         <v-app-bar app :flat="flat">
-            <v-toolbar :flat="flat">
-                <v-app-bar-nav-icon id="nav_icon" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-toolbar :flat="flat" :clipped-left="$vuetify.breakpoint.lgAndUp">
+               
+                <v-toolbar-title
+                style="width: 300px"
+                class="ml-0 pl-4"
+              >
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+                <span class="hidden-sm-and-down">{{ titles.title }}</span>
+              </v-toolbar-title>
+                <v-text-field
+                 flat 
+                 solo-inverted 
+                 hide-details 
+                 prepend-inner-icon="mdi-magnify" 
+                 label="Search"
+                class="hidden-sm-and-down" />
 
-                <v-toolbar-title id="v-toolbar-title" v-on:click="nativateToHere('index')">{{ titles.title }}</v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-toolbar-items>
-                    <!--<v-btn v-on:click="nativateToHere('index')" text>
-                        <v-icon>mdi-home</v-icon>
+                    <v-btn icon>
+                        <v-icon>mdi-apps</v-icon>
                     </v-btn>
-                    <v-btn v-on:click="nativateToHere('products')" text>
-                        <v-icon>mdi-playlist-minus</v-icon>
-                    </v-btn>-->
-                </v-toolbar-items>
+                    <v-btn icon>
+                        <v-icon>mdi-bell</v-icon>
+                    </v-btn>
+                    
 
                 <template>
                     <v-menu transition="scroll-x-reverse-transition">
                         <template v-slot:activator="{ on }">
-                          <v-btn
-                            icon
-                            id="fav_icon"
-                            v-on="on"
-                            
-                          >
-                          <v-icon>mdi-dots-vertical</v-icon>
-                          </v-btn>
+                            <v-btn icon id="fav_icon" v-on="on">
+                                <v-icon>mdi-dots-vertical</v-icon>
+                            </v-btn>
                         </template>
                         <v-list>
-                          <v-list-item
-                            v-for="(item, index) in  menu_items"
-                            :key="index"
-                            v-on:click="nativateToHere(item.location)"
-                          >
+                            <v-list-item v-for="(item, index) in  menu_items" :key="index"
+                                v-on:click="nativateToHere(item.location)">
                                 <v-icon v-text="item.icon"></v-icon>
-                            <v-list-item-title>{{ item.title }}</v-list-item-title>
-                          </v-list-item>
-                          <v-list-item  icon v-if="accToken != null" v-on:click="logout()">
-                              <v-icon>mdi-logout</v-icon>
+                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item icon v-if="accToken != null" v-on:click="logout()">
+                                <v-icon>mdi-logout</v-icon>
                                 <v-list-item-title>Logout</v-list-item-title>
-                          </v-list-item>
+                            </v-list-item>
                         </v-list>
-                      </v-menu>
-                    
+                    </v-menu>
+
                 </template>
             </v-toolbar>
         </v-app-bar>
 
 
         <!--NAVIGATION DRAWER-->
-        <v-navigation-drawer id="app-drawer" expand-on-hover  v-model="drawer" absolute temporary app floating persistent width="260">
+        <v-navigation-drawer
+        :clipped="$vuetify.breakpoint.lgAndUp"
+        v-model="drawer"
+        app>
             <v-list>
 
                 <v-list-item>
@@ -65,13 +72,11 @@
                     </v-list-item-content>
 
                     <v-list-item-action>
-                            <v-btn
-                              icon
-                            >
-                              <v-icon>mdi-star-half</v-icon>
-                              
-                            </v-btn>
-                          </v-list-item-action>
+                        <v-btn icon>
+                            <v-icon>mdi-star-half</v-icon>
+
+                        </v-btn>
+                    </v-list-item-action>
                 </v-list-item>
 
             </v-list>

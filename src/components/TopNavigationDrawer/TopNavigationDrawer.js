@@ -26,7 +26,7 @@ export default {
         {
           text: 'Shared with me',
           icon: 'mdi-folder-account',
-          route: 'index',
+          route: 'products',
           subtitle: 'Lorem ipsum dolor sit de amet..'
         },
         {

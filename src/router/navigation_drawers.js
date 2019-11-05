@@ -11,6 +11,7 @@ import ChatMessages from '@/pages/ChatRoom/MessagesPage/index';
 import UserProfileComponent from '@/pages/UserProfile/index';
 import UploadsComponent from '@/components/pUploads/index';
 import VueChartsComponents from '../pages/VueCharts/index';
+import ShadowListComponet from '@/components/pShadowList/index';
 
 
 export default {
@@ -123,9 +124,17 @@ export default {
                     }
                 },
             ]
-        }
+        },
+        {
+            path: '/shadow',
+            name: 'ShadowList',
+            component: ShadowListComponet,
+            meta: {
+                requiresAuth: false
+            }
+        },
 
 
     ]
 
-}
+};
