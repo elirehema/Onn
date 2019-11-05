@@ -1,4 +1,4 @@
-# Onn [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)
+# Onn [![Build Status](https://travis-ci.com/elirehema/Onn.svg?branch=master)](https://travis-ci.com/elirehema/Onn)  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/597cfe7c643143f7b080fb47b2ce910c)](https://www.codacy.com/manual/elirehemapaul/Onn?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=elirehema/Onn&amp;utm_campaign=Badge_Grade)
 
 ## Project Hosting
 This project is hosted in:
