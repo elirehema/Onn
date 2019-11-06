@@ -15,8 +15,8 @@
   </v-list-item>-->
   <v-card class="mx-auto" outlined>
     <v-list-item three-line>
-      <v-list-item-avatar tile size="125" color="transparent">
-        <v-img src="../../assets/img/videoblocks.png"></v-img>
+      <v-list-item-avatar tile size="200" color="transparent">
+        <v-img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-img>
       </v-list-item-avatar>
       <v-card-text>
         <div class="headline text-left">Drama Korea Melting Me Softly Episode 11 Subtitle Indonesia</div>

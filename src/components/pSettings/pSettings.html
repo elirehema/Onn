@@ -1,5 +1,53 @@
-
-<section class="p-settings">
-  <h1>p-settings Component</h1>
+<section>
+  <v-timeline>
+    <v-timeline :align-top="alignTop" :dense="dense" :reverse="reverse">
+      <v-timeline-item v-for="exp in experiences" 
+      :key="exp.icon" 
+      :fill-dot="fillDot" 
+      :hide-dot="hideDot"
+        :icon="exp.icon" 
+        :icon-color="white"
+        :color="exp.color"
+        :left="left" :right="right"
+        :small="small">
+        <template v-slot:icon>
+          <v-avatar>
+            <img src="https://avatars2.githubusercontent.com/u/29277048?s=460&v=4">
+          </v-avatar>
+        </template>
+        <template v-slot:opposite>
+          <span
+            :class="`headline font-weight-bold ${exp.color}--text`"
+            v-text="exp.year"
+          ></span>
+        </template>
+        <v-card>
+          <v-card-title class="green lighten-1">
+            <v-icon
+              dark
+              size="42"
+              class="mr-4" v-text="exp.icon">
+            </v-icon>
+            <h2 class="display-1 white--text font-weight-light">{{exp.title}}</h2>
+            <v-spacer></v-spacer>
+            <v-icon color="white">mdi-pencil</v-icon>
+          </v-card-title>
+          <v-container>
+            <v-row>
+              <v-col cols="12" md="10">
+                {{lorem_ipsum}}
+                 </v-col>
+              <v-col
+                class="hidden-sm-and-down text-right"
+                md="2"
+              >
+                <v-icon size="64"> mdi-tune-vertical</v-icon>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
+    </div>
+  </v-timeline>
 </section>
-
