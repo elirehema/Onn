@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=pSettings.css.map */
+.p-settings {
+  margin: 0%;
+  padding-inline: 2%;
+}
+
+.p-settings .timeline {
+  padding: 2%;
+  margin: 2%;
+}
+/*# sourceMappingURL=pSettings.css.map */
