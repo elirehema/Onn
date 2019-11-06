@@ -3,7 +3,7 @@
     <v-toolbar flat color="primary" dark>
       <v-toolbar-title>User Profile</v-toolbar-title>
     </v-toolbar>
-    <v-tabs vertical class="my-tabs">
+    <v-tabs horizontal >
       <v-tab  centered:true v-for="p in account">
         <v-icon left>{{p.icon}}</v-icon>
         {{p.title}}
