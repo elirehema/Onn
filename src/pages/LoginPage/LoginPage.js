@@ -38,7 +38,12 @@ export default {
         password: this.password
       };
       this.$store.dispatch('login', data).then(response => {
-        if (response != null){
+        if (response != null && response.data.session != null){
+          console.log(response.data);
+          var user = response.data;
+          this.$cookies.set("quser",user.data,user.session.cookie.exipires, true);     
+          this.$cookies.set("qAccessToken",user.accessToken,user.session.cookie.exipires, true);
+          this.$cookies.set("quuid",user.data.id,user.session.cookie.exipires,  true);    
           this.$router.push('/home');
         }
       }, error => {

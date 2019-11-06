@@ -11,8 +11,14 @@ import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
 import i18n from './plugins/i18n';
 import VueBootstrap from 'bootstrap-vue';
+import VueCookies from 'vue-cookies';
+Vue.use(VueCookies);
+// set default config
+VueCookies.config('7d');
 
-
+// set global cookie
+VueCookies.set('theme','default');
+VueCookies.set('hover-time','1s');
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
