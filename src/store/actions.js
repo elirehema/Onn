@@ -1,142 +1,111 @@
 import axios from '../config/axios-config';
-
-import {
-    ADD_PRODUCT,
-    ADD_PRODUCT_SUCCESS,
-    PRODUCT_BY_ID,
-    PRODUCT_BY_ID_SUCCESS,
-    UPDATE_PRODUCT,
-    UPDATE_PRODUCT_SUCCESS,
-    DELETE_PRODUCT,
-    DELETE_PRODUCT_SUCCESS,
-    ALL_PRODUCTS,
-    ALL_PRODUCTS_SUCCESS,
-    ALL_MANUFACTURERS,
-    ALL_MANUFACTURERS_SUCCESS,
-    LOGIN,
-    LOGIN_SUCCESS,
-    LOGIN_ERROR,
-    LOGOUT,
-    ALL_USERS,
-    ALL_USERS_SUCCESS,
-    ADD_USER,
-    ADD_USER_SUCCESS,
-    REGISTRATION,
-    REGISTRATION_SUCCESS,
-    DELETE_USER,
-    DELETE_USER_SUCCESS,
-    SEND_MESSAGE,
-    SEND_MESSAGE_SUCCESS,
-    GET_MESSAGE,
-    GET_MESSAGE_SUCCESS,
-    GET_MESSAGE_FAILURE, SEND_MESSAGE_FAILURE, LOGOUT_FAILED, USER_PROFILE, USER_PROFILE_SUCCESS, USER_PROFILE_FAILURE, UPDATE_PROFILE, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE
-} from './mutation-types';
-
+import * as mutations from './mutation-types';
+/*jshint sub:true*/
 export const productActions = {
     allProducts({commit}) {
-        commit(ALL_PRODUCTS);
+        commit(mutations.ALL_PRODUCTS);
         axios.get(`/products`).then(response => {
-            commit(ALL_PRODUCTS_SUCCESS, response.data.data);
+            commit(mutations.ALL_PRODUCTS_SUCCESS, response.data.data);
         });
     },
     productById({commit}, payload) {
-        commit(PRODUCT_BY_ID);
+        commit(mutations.PRODUCT_BY_ID);
         axios.get(`/products/${payload}`).then(response =>
-            commit(PRODUCT_BY_ID_SUCCESS, response.data));
+            commit(mutations.PRODUCT_BY_ID_SUCCESS, response.data));
     },
     addProduct({commit}, payload) {
-        commit(ADD_PRODUCT);
+        commit(mutations.ADD_PRODUCT);
         axios.post(`/products`, payload).then(response => {
-            commit(ADD_PRODUCT_SUCCESS, response.data);
+            commit(mutations.ADD_PRODUCT_SUCCESS, response.data);
         });
     },
     updateProduct({commit}, payload) {
-        commit(UPDATE_PRODUCT);
+        commit(mutations.UPDATE_PRODUCT);
         axios.put(`/products/${payload._id}`, payload).then(response => {
-            commit(UPDATE_PRODUCT_SUCCESS, response.data);
+            commit(mutations.UPDATE_PRODUCT_SUCCESS, response.data);
         });
     },
     deleteProduct({commit}, payload) {
-        commit(DELETE_PRODUCT);
+        commit(mutations.DELETE_PRODUCT);
         axios.delete(`/products/${payload}`, payload).then(response => {
-            commit(DELETE_PRODUCT_SUCCESS, response.data);
+            commit(mutations.DELETE_PRODUCT_SUCCESS, response.data);
         });
     }
 };
 
 export const manufacturerActions = {
     allManufacturers({commit}) {
-        commit(ALL_MANUFACTURERS);
+        commit(mutations.ALL_MANUFACTURERS);
         axios.get(`/manufacturers`).then(response => {
-            commit(ALL_MANUFACTURERS_SUCCESS, response.data);
+            commit(mutations.ALL_MANUFACTURERS_SUCCESS, response.data);
         });
     }
 };
 export const userActions = {
     allUsers({commit}) {
-        commit(ALL_USERS);
+        commit(mutations.ALL_USERS);
         axios.get(`/users`).then(response => {
 
-            commit(ALL_USERS_SUCCESS, response.data.data);
+            commit(mutations.ALL_USERS_SUCCESS, response.data.data);
         });
     },
 
     deleteUser({commit}, payload) {
-        commit(DELETE_USER);
+        commit(mutations.DELETE_USER);
         axios.delete(`/users/${payload}`).then(response => {
-            commit(DELETE_USER_SUCCESS, response.data);
+            commit(mutations.DELETE_USER_SUCCESS, response.data);
         });
     },
     currentProfile({commit}, payload){
-        commit(USER_PROFILE);
+        commit(mutations.USER_PROFILE);
         axios.get(`/users/${payload}`)
         .then(response => {
-            commit(USER_PROFILE_SUCCESS, response.data.data);
+            commit(mutations.USER_PROFILE_SUCCESS, response.data.data);
         })
         .catch(function (error) {
-            commit(USER_PROFILE_FAILURE);
+            commit(mutations.USER_PROFILE_FAILURE);
             console.log(error.message);
           });
     },
     updateprofile({commit}, payload){
-        commit(UPDATE_PROFILE);
+        commit(mutations.UPDATE_PROFILE);
         axios.put(`/users/${payload.id}`)
         .then(response => {
-            commit(UPDATE_PROFILE_SUCCESS, response.data.data);
+            commit(mutations.UPDATE_PROFILE_SUCCESS, response.data.data);
         })
         .catch(err => {
-            commit(UPDATE_PROFILE_FAILURE, err);
+            commit(mutations.UPDATE_PROFILE_FAILURE, err);
             console.log(err.message);
         });
     },
     addUser({commit}, payload) {
-        commit(ADD_USER);
+        commit(mutations.ADD_USER);
         axios.post(`/users`, payload).then(response => {
-            commit(ADD_USER_SUCCESS, response.data)
+            commit(mutations.ADD_USER_SUCCESS, response.data)
         });
     },
 
 };
 export const messsageAction = {
     getMessages({commit}) {
-        commit(GET_MESSAGE);
+        commit(mutations.GET_MESSAGE);
         axios.get(`/message`)
             .then(response => {
-                commit(GET_MESSAGE_SUCCESS, response.data.data[0].children);
+                commit(mutations.GET_MESSAGE_SUCCESS, response.data.data[0].children);
             })
             .catch(err => {
-                commit(GET_MESSAGE_FAILURE, err);
+                commit(mutations.GET_MESSAGE_FAILURE, err);
                 console.log(err.message);
             });
     },
     sendMessage({commit}, payload) {
-        commit(SEND_MESSAGE);
+        commit(mutations.SEND_MESSAGE);
         axios.post(`/message`, payload)
             .then(response => {
-                commit(SEND_MESSAGE_SUCCESS, response.data.data)
+                commit(mutations.SEND_MESSAGE_SUCCESS, response.data.data)
             })
             .catch(err => {
-                commit(SEND_MESSAGE_FAILURE, err);
+                commit(mutations.SEND_MESSAGE_FAILURE, err);
                 console.log(err.message);
             });
     }
@@ -145,18 +114,18 @@ export const messsageAction = {
 export const registrationActions = {
     register({commit}, user) {
         return new Promise((resolve, reject) => {
-            commit(REGISTRATION);
+            commit(mutations.REGISTRATION);
             axios({url: `/auth`, data: user, method: 'POST'})
                 .then(resp => {
                     const token = resp.data.token;
                     const user = resp.data.user;
                     localStorage.setItem('token', token);
                     axios.defaults.headers.common['Authorization'] = token;
-                    commit(REGISTRATION_SUCCESS, token, user);
+                    commit(mutations.REGISTRATION_SUCCESS, token, user);
                     resolve(resp);
                 })
                 .catch(err => {
-                    commit(LOGIN_ERROR, err);
+                    commit(mutations.LOGIN_ERROR, err);
                     localStorage.removeItem('token');
                     localStorage.removeItem('uuid');
                     localStorage.removeItem('uumail');
@@ -170,7 +139,7 @@ export const registrationActions = {
 export const loginActions = {
     login({commit}, user) {
         return new Promise((resolve, reject) => {
-            commit(LOGIN);
+            commit(mutations.LOGIN);
             axios.post(`/auth/login`, user)
                 .then(resp => {
 
@@ -180,13 +149,13 @@ export const loginActions = {
                         localStorage.setItem('qAccessToken', token);
                         localStorage.setItem('uuid', user.id );
                         localStorage.setItem('uumail', user.email );
-                        commit(LOGIN_SUCCESS, token, user);
+                        commit(mutations.LOGIN_SUCCESS, token, user);
                         resolve(resp);
                     }
 
                 })
                 .catch(err => {
-                    commit(LOGIN_ERROR);
+                    commit(mutations.LOGIN_ERROR);
                     localStorage.removeItem('qAccessToken');
                     reject(err);
                 });
@@ -194,15 +163,15 @@ export const loginActions = {
     },
     logout({commit}) {
         return new Promise((resolve, reject) => {
-            commit(LOGOUT);
+            commit(mutations.LOGOUT);
             localStorage.removeItem('qAccessToken');
             localStorage.removeItem('username');
             delete axios.defaults.headers.common['Authorization'];
-            commit(LOGIN_SUCCESS);
+            commit(mutations.LOGIN_SUCCESS);
             resolve();
         })
             .catch(err => {
-                commit(LOGOUT_FAILED);
+                commit(mutations.LOGOUT_FAILED);
                 localStorage.removeItem('qAccessToken');
                 reject(err);
             });

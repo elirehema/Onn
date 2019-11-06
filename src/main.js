@@ -39,11 +39,14 @@ Vue.use(VueBootstrap);
 Vue.use(vuetify);
 
 
-
+//Root Instance 
 new Vue({
   i18n,
   render: h => h(App),
   router,
+  /**
+   * provide the store using ther "store" option
+   * this will injetc the store instance to all child components. **/
   store,
   components: { App },
   vuetify,
