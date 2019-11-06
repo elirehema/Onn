@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+/**
+ * Polify library, For browser which does not support/implement Promise such as I.E**/
+import 'es6-promise/auto';
 Vue.use(Vuex);
 import { productGetters,loginGetters, manufacturerGetters, usersGetter, registrationGetters, messageGetter} from './getters'
 import { productMutations, loginMutations, manufacturerMutations, userMutations, registrationMutations, messageMutation } from './mutations'
@@ -13,6 +15,7 @@ export default new Vuex.Store({
         cart: [],
         showLoader: false,
         isAuthenticated: false,
+        authenticationToken: String,
         token: localStorage.getItem('token') || '',
         product: {},
         products: [],
@@ -33,4 +36,4 @@ export default new Vuex.Store({
     actions: Object.assign({},
         productActions, manufacturerActions,loginActions,userActions, registrationActions,messsageAction
         )
-})
+});

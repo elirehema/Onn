@@ -1,161 +1,161 @@
 <section class="top-navigation-drawer">
-    <v-app>
-        <!--NAVIGATION DRAWER-->
-        <v-navigation-drawer :clipped="$vuetify.breakpoint.lgAndUp" v-model="drawer"  app>
-            <v-list class="grey lighten-2" >
-
-                <v-list-item >
-                    <router-link :to="{ name: 'Profile'}">
-                        <v-list-item-avatar>
-                            <v-img src="https://avatars2.githubusercontent.com/u/29277048?s=460&v=4"></v-img>
-                        </v-list-item-avatar>
-                    </router-link>
-                    <v-list-item-content>
-                        <v-list-item-title class="title">Elirehema</v-list-item-title>
-                        <v-list-item-subtitle>Founder of ...</v-list-item-subtitle>
-                    </v-list-item-content>
-
-                    <v-list-item-action>
-                        <v-btn icon>
-                            <v-icon>mdi-star-half</v-icon>
-
-                        </v-btn>
-                    </v-list-item-action>
-                </v-list-item>
-
-            </v-list>
-            <v-list nav dense shaped>
-                <v-list-item-group v-model="item" color="primary">
-                    <v-list-item>
+        <v-app>
+            <!--NAVIGATION DRAWER-->
+            <v-navigation-drawer :clipped="$vuetify.breakpoint.lgAndUp" v-model="drawer"  app>
+                <v-list class="grey lighten-2" >
+    
+                    <v-list-item >
+                        <router-link :to="{ name: 'Profile'}">
+                            <v-list-item-avatar>
+                                <v-img src="https://avatars2.githubusercontent.com/u/29277048?s=460&v=4"></v-img>
+                            </v-list-item-avatar>
+                        </router-link>
                         <v-list-item-content>
-
-                            <v-list-item-subtitle class="subtitle">Day/Dark Theme</v-list-item-subtitle>
+                            <v-list-item-title class="title">Elirehema</v-list-item-title>
+                            <v-list-item-subtitle>Founder of ...</v-list-item-subtitle>
                         </v-list-item-content>
+    
                         <v-list-item-action>
-                            <v-switch :value="true" @change="toggle($event !== null)"></v-switch>
+                            <v-btn icon>
+                                <v-icon>mdi-star-half</v-icon>
+    
+                            </v-btn>
                         </v-list-item-action>
-
                     </v-list-item>
-                    <v-list-item v-for="(item, i) in items" :key="`${i}-${item.route}`"
-                        v-on:click="nativateToHere(item.route)">
-                        <v-list-item-icon>
-                            <v-icon v-text="item.icon"></v-icon>
-                        </v-list-item-icon>&nbsp;&nbsp;
-
-                        <v-list-item-content>
-                            <v-list-item-title v-text="item.text"></v-list-item-title>
-                            <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
-
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-divider></v-divider>
+    
+                </v-list>
+                <v-list nav dense shaped>
                     <v-list-item-group v-model="item" color="primary">
-                        <v-list-item v-for="(folder, i) in folders" :key="`${i}-${folder.icon}`"
-                            v-on:click="nativateToHere(folder.route)">
-                            <v-list-item-icon>
-                                <v-icon>mdi-folder-outline</v-icon>
-                            </v-list-item-icon>&nbsp;&nbsp;
-
+                        <v-list-item>
                             <v-list-item-content>
-                                <v-list-item-title v-text="folder.text"></v-list-item-title>
+    
+                                <v-list-item-subtitle class="subtitle">Day/Dark Theme</v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                                <v-switch :value="true" @change="toggle($event !== null)"></v-switch>
+                            </v-list-item-action>
+    
+                        </v-list-item>
+                        <v-list-item v-for="(item, i) in items" :key="`${i}-${item.route}`"
+                            v-on:click="nativateToHere(item.route)">
+                            <v-list-item-icon>
+                                <v-icon v-text="item.icon"></v-icon>
+                            </v-list-item-icon>&nbsp;&nbsp;
+    
+                            <v-list-item-content>
+                                <v-list-item-title v-text="item.text"></v-list-item-title>
+                                <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
+    
                             </v-list-item-content>
                         </v-list-item>
-
+                        <v-divider></v-divider>
+                        <v-list-item-group v-model="item" color="primary">
+                            <v-list-item v-for="(folder, i) in folders" :key="`${i}-${folder.icon}`"
+                                v-on:click="nativateToHere(folder.route)">
+                                <v-list-item-icon>
+                                    <v-icon>mdi-folder-outline</v-icon>
+                                </v-list-item-icon>&nbsp;&nbsp;
+    
+                                <v-list-item-content>
+                                    <v-list-item-title v-text="folder.text"></v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+    
+                        </v-list-item-group>
+    
                     </v-list-item-group>
-
-                </v-list-item-group>
-            </v-list>
-
-
-        </v-navigation-drawer>
-
-        <v-app-bar app :flat="flat">
-            <v-toolbar :flat="flat" :clipped-left="$vuetify.breakpoint.lgAndUp">
-
-                <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-                    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-                    <span class="hidden-sm-and-down">{{ titles.title }}</span>
-                </v-toolbar-title>
-                <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Search"
-                    class="hidden-sm-and-down" />
-
-                <v-spacer></v-spacer>
-
-                <v-btn icon>
-                    <v-icon>mdi-apps</v-icon>
-                </v-btn>
-                <v-btn icon>
-                    <v-icon>mdi-bell</v-icon>
-                </v-btn>
-
-
-                <template>
-                    <v-menu transition="scroll-x-reverse-transition">
-                        <template v-slot:activator="{ on }">
-                            <v-btn icon id="fav_icon" v-on="on">
-                                <v-icon>mdi-dots-vertical</v-icon>
-                            </v-btn>
-                        </template>
-                        <v-list>
-                            <v-list-item v-for="(item, index) in  menu_items" :key="index"
-                                v-on:click="nativateToHere(item.location)">
-                                <v-icon v-text="item.icon"></v-icon>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item icon v-if="accToken != null" v-on:click="logout()">
-                                <v-icon>mdi-logout</v-icon>
-                                <v-list-item-title>Logout</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-
-                </template>
-            </v-toolbar>
-        </v-app-bar>
-
-
-
-        <v-content>
-            <!-- Provides the application the proper gutter -->
-            <v-container fluid>
-                <!-- If using vue-router -->
-                <router-view></router-view>
-            </v-container>
-        </v-content>
-
-        <!-- FOOTER COMPONENT -->
-
-        <v-footer
-        dark
-        padless
-        class="grey lighten-2"
-      >
-        <v-card
-          class="flex"
-          flat
-          tile
-        >
-          <v-card-title class="">
-           
+                </v-list>
     
-            <v-btn
-              v-for="icon in footer_icons"
-              :key="icon"
-              class="mx-4"
-              :href="icon.link" 
-              target="_blank"
-              dark
-              icon
+    
+            </v-navigation-drawer>
+    
+            <v-app-bar app :flat="flat">
+                <v-toolbar :flat="flat" :clipped-left="$vuetify.breakpoint.lgAndUp">
+    
+                    <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
+                        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+                        <span class="hidden-sm-and-down">{{ titles.title }}</span>
+                    </v-toolbar-title>
+                    <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Search"
+                        class="hidden-sm-and-down" />
+    
+                    <v-spacer></v-spacer>
+    
+                    <v-btn icon>
+                        <v-icon>mdi-apps</v-icon>
+                    </v-btn>
+                    <v-btn icon>
+                        <v-icon>mdi-bell</v-icon>
+                    </v-btn>
+    
+    
+                    <template>
+                        <v-menu transition="scroll-x-reverse-transition">
+                            <template v-slot:activator="{ on }">
+                                <v-btn icon id="fav_icon" v-on="on">
+                                    <v-icon>mdi-dots-vertical</v-icon>
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item v-for="(item, index) in  menu_items" :key="index"
+                                    v-on:click="nativateToHere(item.location)">
+                                    <v-icon v-text="item.icon"></v-icon>
+                                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item icon v-if="accToken != null" v-on:click="logout()">
+                                    <v-icon>mdi-logout</v-icon>
+                                    <v-list-item-title>Logout</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+    
+                    </template>
+                </v-toolbar>
+            </v-app-bar>
+    
+    
+    
+            <v-content>
+                <!-- Provides the application the proper gutter -->
+                <v-container fluid>
+                    <!-- If using vue-router -->
+                    <router-view></router-view>
+                </v-container>
+            </v-content>
+    
+            <!-- FOOTER COMPONENT -->
+    
+            <v-footer
+            dark
+            padless
+            class="grey lighten-2"
+          >
+            <v-card
+              class="flex"
+              flat
+              tile
             >
-              <v-icon size="24px" target="_blank" :color="icon.color">{{ icon.data }}</v-icon>
-            </v-btn>
-          </v-card-title>
+              <v-card-title class="">
+               
+        
+                <v-btn
+                  v-for="icon in footer_icons"
+                  :key="icon"
+                  class="mx-4"
+                  :href="icon.link" 
+                  target="_blank"
+                  dark
+                  icon
+                >
+                  <v-icon size="24px" target="_blank" :color="icon.color">{{ icon.data }}</v-icon>
+                </v-btn>
+              </v-card-title>
+        
+              <!--<v-card-text class="py-2 white--text text-center">
+                {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+              </v-card-text>-->
+            </v-card>
+          </v-footer>
     
-          <!--<v-card-text class="py-2 white--text text-center">
-            {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-          </v-card-text>-->
-        </v-card>
-      </v-footer>
-
-    </v-app>
-</section>
+        </v-app>
+    </section>

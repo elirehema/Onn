@@ -1,78 +1,51 @@
 // import { productSchema } from './schemas'
 // import { normalize } from 'normalizr'
 // import merge from "lodash/object/merge"
+/*jshint esversion: 6 */
+/*jshint sub:true*/
+import * as mutations from './mutation-types';
 
-import {
-    ADD_PRODUCT,
-    ADD_PRODUCT_SUCCESS,
-    PRODUCT_BY_ID,
-    PRODUCT_BY_ID_SUCCESS,
-    UPDATE_PRODUCT,
-    UPDATE_PRODUCT_SUCCESS,
-    REMOVE_PRODUCT,
-    REMOVE_PRODUCT_SUCCESS,
-    ADD_TO_CART,
-    REMOVE_FROM_CART,
-    ALL_PRODUCTS,
-    ALL_PRODUCTS_SUCCESS,
-    ALL_MANUFACTURERS,
-    ALL_MANUFACTURERS_SUCCESS,
-    LOGIN,
-    LOGIN_SUCCESS,
-    LOGIN_ERROR,
-    LOGOUT,
-    ALL_USERS,
-    ALL_USERS_SUCCESS,
-    ADD_USER,
-    ADD_USER_SUCCESS,
-    REGISTRATION,
-    REGISTRATION_SUCCESS,
-    DELETE_USER,
-    DELETE_USER_SUCCESS,
-    SEND_MESSAGE,
-    SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAILURE, GET_MESSAGE, GET_MESSAGE_SUCCESS, GET_MESSAGE_FAILURE, USER_PROFILE, USER_PROFILE_SUCCESS, USER_PROFILE_FAILURE, UPDATE_PROFILE, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE,
-} from './mutation-types';
 
 export const productMutations = {
-    [ALL_PRODUCTS](state) {
+    [mutations.ALL_PRODUCTS](state) {
         state.showLoader = true;
-        // this[]
+        
     },
-    [ALL_PRODUCTS_SUCCESS](state, payload) {
+    [mutations.ALL_PRODUCTS_SUCCESS](state, payload) {
         state.showLoader = false;
         state.products = payload;
     },
-    [PRODUCT_BY_ID](state) {
+    [mutations.PRODUCT_BY_ID](state) {
         state.showLoader = true;
     },
-    [PRODUCT_BY_ID_SUCCESS](state, payload) {
+    [mutations.PRODUCT_BY_ID_SUCCESS](state, payload) {
         state.showLoader = false;
         state.product = payload;
     },
-    [ADD_PRODUCT]: (state) => {
+    [mutations.ADD_PRODUCT]: (state) => {
         state.showLoader = true;
     },
-    [ADD_PRODUCT_SUCCESS]: (state, payload) => {
+    [mutations.ADD_PRODUCT_SUCCESS]: (state, payload) => {
         state.showLoader = false;
         state.products.push(payload);
     },
-    [UPDATE_PRODUCT]: (state) => {
+    [mutations.UPDATE_PRODUCT]: (state) => {
         state.showLoader = true;
     },
-    [UPDATE_PRODUCT_SUCCESS]: (state, payload) => {
+    [mutations.UPDATE_PRODUCT_SUCCESS]: (state, payload) => {
         state.showLoader = false;
         state.products = state.products.map(p => {
             if (p._id === payload._id) {
-                payload = {...payload, manufacturer: state.manufacturers.filter(x => x._id === payload.manufacturer)[0]}
+                payload = {payload, manufacturer: state.manufacturers.filter(x => x._id === payload.manufacturer)[0]};
                 return payload;
             }
             return p;
         });
     },
-    [REMOVE_PRODUCT]: (state) => {
+    [mutations.REMOVE_PRODUCT]: (state) => {
         state.showLoader = true;
     },
-    [REMOVE_PRODUCT_SUCCESS]: (state, payload) => {
+    [mutations.REMOVE_PRODUCT_SUCCESS]: (state, payload) => {
         state.showLoader = false;
         const index = state.products.findIndex(p => p._id === payload);
         console.debug('index', index);
@@ -81,8 +54,8 @@ export const productMutations = {
 };
 
 export const cartMutations = {
-    [ADD_TO_CART]: (state, payload) => state.cart.push(payload),
-    [REMOVE_FROM_CART]: (state, payload) => {
+    [mutations.ADD_TO_CART]: (state, payload) => state.cart.push(payload),
+    [mutations.REMOVE_FROM_CART]: (state, payload) => {
         const index = state.cart.findIndex(p => p._id === payload);
         state.cart.splice(index, 1);
         console.log(state.cart, state.cart.length, index);
@@ -90,34 +63,34 @@ export const cartMutations = {
 };
 
 export const manufacturerMutations = {
-    [ALL_MANUFACTURERS](state) {
+    [mutations.ALL_MANUFACTURERS](state) {
         state.showLoader = true;
     },
-    [ALL_MANUFACTURERS_SUCCESS](state, payload) {
+    [mutations.ALL_MANUFACTURERS_SUCCESS](state, payload) {
         state.showLoader = false;
         state.manufacturers = payload;
     }
 };
 
 export const userMutations = {
-    [ALL_USERS](state) {
+    [mutations.ALL_USERS](state) {
         state.showLoader = true;
     },
-    [ALL_USERS_SUCCESS](state, payload) {
+    [mutations.ALL_USERS_SUCCESS](state, payload) {
         state.showLoader = false;
         state.users = payload;
     },
-    [ADD_USER]: (state) => {
+    [mutations.ADD_USER]: (state) => {
         state.showLoader = true;
     },
-    [ADD_USER_SUCCESS]: (state, payload) => {
+    [mutations.ADD_USER_SUCCESS]: (state, payload) => {
         state.showLoader = false;
         state.users.push(payload);
     },
-    [DELETE_USER]: (state) => {
+    [mutations.DELETE_USER]: (state) => {
         state.showLoader = false;
     },
-    [DELETE_USER_SUCCESS]: (state, payload) => {
+    [mutations.DELETE_USER_SUCCESS]: (state, payload) => {
         state.showLoader = false;
         state.deleted = payload;
 
@@ -126,63 +99,63 @@ export const userMutations = {
 };
 
 export const loginMutations = {
-    [LOGIN](state) {
+    [mutations.LOGIN](state) {
         state.showLoader = true;
     },
-    [LOGIN_SUCCESS](state, token, user) {
+    [mutations.LOGIN_SUCCESS](state, token, user) {
         state.showLoader = false;
         state.user = user;
         state.token = token;
         state.isAuthenticated = true;
     },
-    [LOGIN_ERROR](state) {
+    [mutations.LOGIN_ERROR](state) {
         state.showLoader = false;
         state.isAuthenticated = false;
     },
-    [LOGOUT](state) {
+    [mutations.LOGOUT](state) {
         state.token = '';
         state.isAuthenticated = false;
     },
-    [USER_PROFILE](state){
+    [mutations.USER_PROFILE](state){
         state.showLoader = true;
     },
-    [USER_PROFILE_SUCCESS](state, profile){
+    [mutations.USER_PROFILE_SUCCESS](state, profile){
         state.showLoader = false;
         state.profile= profile;
     },
-    [USER_PROFILE_FAILURE](state){
+    [mutations.USER_PROFILE_FAILURE](state){
         state.showLoader = false;
     },
-    [UPDATE_PROFILE](state){
+    [mutations.UPDATE_PROFILE](state){
         state.showLoader = true;
     },
-    [UPDATE_PROFILE_SUCCESS](state, profile){
+    [mutations.UPDATE_PROFILE_SUCCESS](state, profile){
         state.showLoader = false;
         state.profile = profile;
     },
-    [UPDATE_PROFILE_FAILURE](state){
+    [mutations.UPDATE_PROFILE_FAILURE](state){
         state.showLoader = false;
     },
 };
 export const messageMutation = {
-    [SEND_MESSAGE](state){
+    [mutations.SEND_MESSAGE](state){
         state.showLoader = true;
     },
-    [SEND_MESSAGE_SUCCESS](state, message){
+    [mutations.SEND_MESSAGE_SUCCESS](state, message){
         state.showLoader = false;
         state.message  = message;
     },
-    [SEND_MESSAGE_FAILURE](state){
+    [mutations.SEND_MESSAGE_FAILURE](state){
         state.showLoader = false;
     },
-    [GET_MESSAGE](state){
+    [mutations.GET_MESSAGE](state){
         state.showLoader = true;
     },
-    [GET_MESSAGE_SUCCESS](state, message){
+    [mutations.GET_MESSAGE_SUCCESS](state, message){
         state.showLoader = false;
         state.messages  = message;
     },
-    [GET_MESSAGE_FAILURE](state){
+    [mutations.GET_MESSAGE_FAILURE](state){
         state.showLoader = false;
     },
 
@@ -191,10 +164,10 @@ export const messageMutation = {
 };
 
 export const registrationMutations = {
-    [REGISTRATION](state) {
+    [mutations.REGISTRATION](state) {
         state.showLoader = true;
     },
-    [REGISTRATION_SUCCESS](state, payload) {
+    [mutations.REGISTRATION_SUCCESS](state, payload) {
         state.showLoader = true;
         state.auth = payload;
     }

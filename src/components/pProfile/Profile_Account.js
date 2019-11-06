@@ -14,57 +14,57 @@ export default {
   computed: {
     username: {
       get() {
-        return this.$store.state.profile.username
+        return this.$store.state.profile.username;
       },
       set(value)
       {
-        this.$store.commit('updateUsername', value)
+        this.$store.commit('updateUsername', value);
       }
     },
     fname: {
       get() {
-        return this.$store.state.profile.fname
+        return this.$store.state.profile.fname;
       }
     },
 
     lname: {
       get() {
-        return this.$store.state.profile.lname
+        return this.$store.state.profile.lname;
       }
     },
     phone: {
       get() {
-        return this.$store.state.profile.phone
+        return this.$store.state.profile.phone;
       }
     },
     image: {
       get() {
-        return this.$store.state.profile.image
+        return this.$store.state.profile.image;
       }
     },
     email: {
       get() {
-        return this.$store.state.profile.email
+        return this.$store.state.profile.email;
       }
     },
     city: {
       get() {
-        return this.$store.state.profile.city
+        return this.$store.state.profile.city;
       }
     },
     country: {
       get() {
-        return this.$store.state.profile.country
+        return this.$store.state.profile.country;
       }
     },
     postal: {
       get() {
-        return this.$store.state.profile.postal
+        return this.$store.state.profile.postal;
       }
     },
     address: {
       get() {
-        return this.$store.state.profile.address
+        return this.$store.state.profile.address;
       }
     },
 
