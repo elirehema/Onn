@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+/*jshint sub:true*/
 
 import Vue from 'vue';
 import router from './router';
