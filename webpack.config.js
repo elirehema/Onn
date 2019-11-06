@@ -1,113 +1,56 @@
-const path = require('path');
+// webpack.http-config.js
+var path = require('path');
 
-const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+module.exports = {
+    
+    // This is the "main" file which should include all other modules
+    entry: './src/main.js',
+    // Where should the compiled file go?
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js'
 
-module.exports = (env, argv) => ({
-  mode: argv && argv.mode || 'development',
-  devtool: (argv && argv.mode || 'development') === 'production' ? 'source-map' : 'eval',
+    },
+    resolve: {
+        extensions: ['.js','.vue','.json'],
+        alias: {
+            vue: 'vue/dist/vue.js',
 
-  entry: './src/main.js',
-
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
-  },
-
-  node: false,
-
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ],
-        exclude: /\.module\.css$/
-      }
-    ]
-  },
-
-  resolve: {
-    extensions: [
-      '.js',
-      '.vue',
-      '.json'
-    ],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, 'src')
-    }
-  },
-
-  plugins: [
-    new CleanWebpackPlugin({
-        cleanAfterEveryBuildPatterns: ['dist']
-    }),
-    new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'static', 'index.html'),
-      inject: true
-    }),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'static'),
-      to: path.resolve(__dirname, 'dist'),
-      toType: 'dir'
-    }]),
-    new SWPrecacheWebpackPlugin({
-      cacheId: 'my-pwa-vue-app',
-      filename: 'service-worker-cache.js',
-      staticFileGlobs: ['dist/**/*.{js,css}', '/'],
-      minify: true,
-      stripPrefix: 'dist/',
-      dontCacheBustUrlsMatching: /\.\w{6}\./
-    }),
-  ],
-
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 30000,
-      maxSize: 0,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
         }
-      }
     },
-    runtimeChunk: {
-      name: entrypoint => `runtime~${entrypoint.name}`
-    },
-    mangleWasmImports: true,
-    removeAvailableModules: true,
-    removeEmptyChunks: true,
-    mergeDuplicateChunks: true
-  },
 
-  devServer: {
-    compress: true,
-    host: '127.0.0.1',
-    https: true,
-    open: true,
-    overlay: true,
-    port: 3000
-  }
-});
+    module: {
+        // Special compilation rules
+        rules: [
+            {
+                // Ask webpack to check: If this file ends with .js, then apply some transforms
+                test: /\.js$/,
+                // Transform it with babel
+                loader: 'babel-loader',
+                // don't transform node_modules folder (which don't need to be compiled)
+                exclude: /node_modules/
+            },
+            {
+                // Ask webpack to check: If this file ends with .vue, then apply some transforms
+                test: /\.vue$/,
+                // don't transform node_modules folder (which don't need to be compiled)
+                exclude: /(node_modules|bower_components)/,
+                // Transform it with vue
+                use: {
+                    loader: 'vue-loader'
+                }
+            }
+        ]
+    },
+    devServer: {
+        compress: true,
+        host: 'localhost',
+        https: true,
+        open: true,
+        overlay: true,
+        port: 3000
+    },
+    performance: {
+        hints: process.env.NODE_ENV === 'production' ? "warning" : false
+    }
+};

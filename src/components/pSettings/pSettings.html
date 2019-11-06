@@ -1,6 +1,6 @@
-<section>
-  <v-timeline>
-    <v-timeline :align-top="alignTop" :dense="dense" :reverse="reverse">
+<section class="p-settings">
+ 
+    <v-timeline class="mx-3" :align-top="alignTop" :dense="dense" :reverse="reverse">
       <v-timeline-item v-for="exp in experiences" 
       :key="exp.icon" 
       :fill-dot="fillDot" 
@@ -48,6 +48,5 @@
         </v-card>
       </v-timeline-item>
     </v-timeline>
-    </div>
-  </v-timeline>
+   
 </section>
