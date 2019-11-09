@@ -4,13 +4,13 @@
       <v-toolbar-title>Chat Room</v-toolbar-title>
     </v-toolbar>
     <v-tabs vertical>
-      <v-tab v-for="(item, index) in users.slice(0, 6)">
+      <v-tab v-for="(item, index) in users.slice(0, 6)" :key="item.username">
         <v-icon left>mdi-account</v-icon>
         {{item.username}}
       </v-tab>
 
 
-      <v-tab-item v-for="(item, index) in users.slice(0, 6)">
+      <v-tab-item v-for="(item, index) in users.slice(0, 6)" :key="item.username">
         <v-card flat :key="index" >
           <router-view></router-view>
         </v-card>
