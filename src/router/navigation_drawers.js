@@ -12,6 +12,7 @@ import UserProfileComponent from '@/pages/UserProfile/index';
 import UploadsComponent from '@/components/pUploads/index';
 import VueChartsComponents from '../pages/VueCharts/index';
 import ShadowListComponet from '@/components/pShadowList/index';
+import TrashComponent from '@/components/pTrash/index';
 
 
 export default {
@@ -107,6 +108,15 @@ export default {
                 requiresAuth: true
             }
         },
+         {
+            path: '/trash',
+            name: 'Trash',
+            component: TrashComponent,
+            meta: {
+                requiresAuth: true
+            }
+        },
+
         {
             path: '/chat',
             name: 'ChatRoom',

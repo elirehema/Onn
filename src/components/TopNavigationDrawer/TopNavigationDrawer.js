@@ -45,7 +45,7 @@ export default {
         {
           text: 'Trash',
           icon: 'mdi-delete',
-          route: 'index',
+          route: 'trash',
           subtitle: 'Lorem ipsum dolor sit de amet ...'
         },
         {
