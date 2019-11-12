@@ -1,0 +1,13 @@
+.p-trash {
+  position: relative;
+}
+
+.p-trash .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 2%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=pTrash.css.map */

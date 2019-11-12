@@ -1,0 +1,13 @@
+.p-trash {
+    position: relative;
+
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 2%;
+        transform: translate(-50%, -50%);
+
+    }
+
+}
