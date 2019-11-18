@@ -9,9 +9,11 @@ import moment from 'moment';
 import VueAxios from 'vue-axios';
 import axios from './config/axios-config';
 import vuetify from '@/plugins/vuetify';
-import i18n from './plugins/i18n';
 import VueCookies from 'vue-cookies';
+import i18n from '@/plugins/i18n';
+import FlagIcon from 'vue-flag-icon';
 Vue.use(VueCookies);
+Vue.use(FlagIcon);
 // set default config
 VueCookies.config('7d');
 

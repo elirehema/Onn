@@ -1,6 +1,15 @@
 <section class="chart" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <div>
-  <p>Vue Chart's</p>
-</div>
+
+  <v-btn  v-for="entry in languages"
+   :key="entry.title"
+   v-on:click="changeLocale(entry.language)">      {{entry.title}}    </v-btn>
+
+<v-spacer></v-spacer>
+<div class="hello">        
+  <h1>{{ $t('welcomeMsg') }}</h1>    
+      
+              {{ $t('guide') }}<br>            {{ $t('checkout') }}         
+            </div></div>
 </section>
 
