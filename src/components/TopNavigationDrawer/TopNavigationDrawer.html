@@ -84,9 +84,12 @@
                     <v-btn icon>
                         <v-icon>mdi-apps</v-icon>
                     </v-btn>
-                    <v-btn v-on:click="nativateToHere('notifications')" icon>
-                        <v-icon>mdi-bell</v-icon>
-                    </v-btn>
+                    <v-badge
+                     v-on:click="nativateToHere('notifications')"
+                     overlap>
+                            <template v-slot:badge>!</template>
+                            <v-icon>mdi-bell</v-icon>
+                          </v-badge>
     
     
                     <template>
