@@ -13,6 +13,7 @@ import UploadsComponent from '@/components/pUploads/index';
 import VueChartsComponents from '../pages/VueCharts/index';
 import ShadowListComponet from '@/components/pShadowList/index';
 import TrashComponent from '@/components/pTrash/index';
+import NotificationsComponent from '@/components/pNotifications/index';
 
 
 export default {
@@ -141,6 +142,14 @@ export default {
             component: ShadowListComponet,
             meta: {
                 requiresAuth: false
+            }
+        },
+        {
+            path: '/notifications',
+            name: 'Notifications',
+            component: NotificationsComponent,
+            meta: {
+                requiresAuth: true
             }
         },
 
