@@ -1,3 +1,5 @@
+
+import { mapGetters } from 'vuex';
 export default {
   name: 'view-user-page',
   components: {},
@@ -12,7 +14,8 @@ export default {
   computed: {
     user () {
       return this.$store.getters.userById(this.$route.params['id']);
-    }
+    },
+   
 
   },
   mounted () {
