@@ -44,7 +44,9 @@ export default {
     };
   },
   created: function() {
-      this.$store.dispatch('allUsers');
+      this.$store.dispatch({type:'allUsers'}).then(()=>{
+        console.log("Done");
+      });
 
   },
 
