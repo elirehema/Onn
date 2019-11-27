@@ -142,8 +142,8 @@
                
         
                 <v-btn
-                  v-for="icon in footer_icons"
-                  :key="icon"
+                  v-for="(icon, index) in footer_icons"
+                  :key="index"
                   class="mx-4"
                   :href="icon.link" 
                   target="_blank"
