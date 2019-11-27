@@ -48,7 +48,8 @@ new Vue({
   router,
   /**
    * provide the store using ther "store" option
-   * this will injetc the store instance to all child components. **/
+   * this will injetc the store instance to all child components. 
+   **/
   store,
   components: { App },
   vuetify,
