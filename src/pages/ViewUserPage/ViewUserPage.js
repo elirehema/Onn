@@ -1,5 +1,4 @@
 
-import { mapGetters } from 'vuex';
 export default {
   name: 'view-user-page',
   components: {},
