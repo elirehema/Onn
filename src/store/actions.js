@@ -10,7 +10,8 @@ export const productActions = {
     },
     productById({commit}, payload) {
         commit(mutations.PRODUCT_BY_ID);
-        axios.get(`/products/${payload}`).then(response =>
+        axios.get(`/products/${payload}`)
+             .then(response =>
             commit(mutations.PRODUCT_BY_ID_SUCCESS, response.data));
     },
     addProduct({commit}, payload) {
@@ -145,7 +146,7 @@ export const loginActions = {
 
                     if (resp.data.accessToken != null) {
                         const token = resp.data.accessToken;
-                        const user = resp.data.data;
+                        const user = resp.data.user;
                         localStorage.setItem('qAccessToken', token);
                         localStorage.setItem('uuid', user.id );
                         localStorage.setItem('uumail', user.email );
