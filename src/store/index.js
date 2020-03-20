@@ -6,8 +6,7 @@ import 'es6-promise/auto';
 Vue.use(Vuex);
 import { productGetters,loginGetters, manufacturerGetters, usersGetter, registrationGetters, messageGetter} from './getters'
 import { productMutations, loginMutations, manufacturerMutations, userMutations, registrationMutations, messageMutation } from './mutations'
-import { productActions, manufacturerActions,loginActions,
-         userActions, registrationActions,messsageAction } from './actions';
+import { productActions, manufacturerActions,loginActions, userActions, registrationActions,messsageAction } from './actions';
 
 export default new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
