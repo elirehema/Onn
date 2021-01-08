@@ -10,7 +10,7 @@
     "deve": "webpack-dev-server --progress"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chai": "^4.2.0",
     "core-js": "^2.6.10",
     "es6-promise": "^4.2.8",
